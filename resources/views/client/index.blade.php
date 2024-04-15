@@ -11,7 +11,8 @@
             </div>
         </div>
         <main class="pt-3 py-3 my-3 mx-3">
-            <table class="table table-striped border border-4">
+        @if(! $clients->isEmpty())
+        <table class="table table-striped border border-4">
                 <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -47,7 +48,13 @@
                   </tbody>
                   @endforeach
             </table>
+        @else
+        <span class="text-danger display-4">
+            لا يوجد زبناء ! 
+        </span>
+        @endif
         </main>
+        
         <div class="mx-3 my-3 px-3 py-3"> 
         <!-- {{ $clients->links() }} -->
         </div>
