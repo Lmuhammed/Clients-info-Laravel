@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام معلومات التلاميذ</title>
+    <title>نظام إدارة الزبناء</title>
     <link rel="stylesheet" href="{{asset('Boostrap/css/bootstrap.min.css')}}">
 </head>
 <body>
    <!-- nav -->
    <nav class="navbar navbar-dark bg-dark mb-3">
         <div class="container">
-            <a class="navbar-brand" href="#">نظام معلومات التلاميذ</a>
+            <a class="navbar-brand" href="{{ route('clients.index') }}">نظام إدارة الزبناء</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -47,7 +47,7 @@
     <!-- endnav -->
 
     <div class="container pt-1 pb-1">
-       <!-- message success  -->
+       <!-- success message   -->
     @if(session('success'))
     <div class="alert alert-success" role="alert">
     <h4 class="alert-heading">رسالة</h4>
@@ -55,8 +55,8 @@
     <p> {{ session('success') }} </p>
     </div>
     @endif
-   <!-- endmesage -->
-   <!-- message danger  -->
+   <!-- end message -->
+   <!-- danger message   -->
    @if(session('danger'))
     <div class="alert alert-danger" role="alert">
     <h4 class="alert-heading">رسالة</h4>
@@ -64,7 +64,7 @@
     <p> {{ session('danger') }} </p>
     </div>
     @endif
-   <!-- endmesage -->
+   <!-- end message -->
     @yield("main")
     </div>
     <!-- <script src=""></script> -->

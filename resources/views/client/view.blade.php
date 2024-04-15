@@ -1,9 +1,9 @@
 @extends('../_componets.main')
 @section('main')
 <div class="row justify-content-between mt-3">
-            <div class="col-4">
+            <div class="col-6">
                 <h3 class="h1">
-                    معلومات التلميذ
+                    معلومات الزبون
                 </h3>
             </div>
            <!--  <div class="col-3">
@@ -36,7 +36,7 @@
               <div class="row justify-content-between mt-3">
                 <div class="col-4">
                     <h3 class="h1">
-                        معلومات المنتوج
+                        المنتوجات
                     </h3>
                 </div>
                 <div class="col-2">
@@ -61,6 +61,7 @@
                       <td>كرسي</td>
                       <td>1000</td>
                       <td>200</td>
+                      <td>80</td>
                       <td>
                         <div class="d-grid gap-2 d-md-block">
                             <button class="btn btn-success" type="button">عرض</button>
