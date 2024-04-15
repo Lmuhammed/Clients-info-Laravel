@@ -56,6 +56,6 @@
         </main>
         
         <div class="mx-3 my-3 px-3 py-3"> 
-        <!-- {{ $clients->links() }} -->
+        {{ $clients->links() }}
         </div>
 @endsection
