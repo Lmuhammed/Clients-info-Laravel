@@ -40,7 +40,7 @@
                     </h3>
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-dark" type="button">إضافة</button>
+                    <a href="{{route('products.store-view',$client->id)}}" class="btn btn-primary">إضافة</a>
                 </div>
             </div>
               <!-- table -->
@@ -56,21 +56,27 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    @foreach ($client->products as $products)
+                  <tr>
                       <th scope="row">1</th>
-                      <td>كرسي</td>
-                      <td>1000</td>
-                      <td>200</td>
-                      <td>80</td>
+                      <td>{{$products->product_name }}</td>
+                      <td>{{$products->product_prix }}</td>
+                      <td>{{'count payment table'}}</td>
+                      <td>{{'prix - count payment table'}}</td>
                       <td>
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-success" type="button">عرض</button>
-                            <button class="btn btn-secondary" type="button">تعديل</button>
-                            <button class="btn btn-danger" type="button">حذف</button>
+                          <form action="{{ route('products.destroy',['id' => $products->id, 'client_id' => $client->id ]) }}" method="POST">
+                             <a class="btn btn-success" href="{{ route('products.view',['id' => $products->id, 'client_id' => $client->id ]) }}">عرض</a>
+                              <a class="btn btn-secondary" href="{{ route('products.edit',['id' => $products->id, 'client_id' => $client->id ]) }}">تعديل</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">حذف</button>
+                          </form> 
                           </div>
                       </td>
                     </tr>
                   </tbody>
+                  @endforeach
             </table>
         </main>
 @endsection

@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,13 @@ use App\Http\Controllers\ClientController;
     Route::delete('delete/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
     
 // });
+
+//Products
+Route::get('product-new/{id}', [ProductController::class, 'new_view'])->name('products.store-view');
+Route::post('product-create/{id}', [ProductController::class, 'create'])->name('products.store');
+Route::get('product-view/{id}/{client_id}', [ProductController::class, 'single_view'])->name('products.view');
+Route::get('product-edit/{id}/{client_id}', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('product-edit/{id}/{client_id}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('product-delete/{id}/{client_id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
 
