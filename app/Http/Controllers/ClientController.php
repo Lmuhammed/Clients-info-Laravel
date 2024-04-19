@@ -13,6 +13,9 @@ class clientController extends Controller
     }
     
     function pdf_payment (int $client_id){
+        $client=client::findOrfail($client_id);
+        $products=$client->products;
+        return view('client.pdf.payment',compact('client','products'));
     }
     function index(){
        $clients=client::paginate(8);
