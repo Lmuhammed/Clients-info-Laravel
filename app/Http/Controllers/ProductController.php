@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\client;
+use App\Models\Payment;
 use App\Models\product;
 use Illuminate\Http\Request;
 
@@ -22,10 +23,11 @@ class ProductController extends Controller
         return redirect()->route('clients.view',$id)
         ->with('success','تمت إضافة معلومات المنتوج بنجاح');
     }
-    function single_view(int $id,$client_id){
+    function single_view(int $id,int $client_id){
         $product=product::findOrfail($id);
         $client=client::find($client_id);
-        return view('product.view',compact('product','client'));
+        $payments = $product->payments;
+        return view('product.view',compact('product','client','payments'));
     }
     function edit(int $id , int $client_id) {
         $products=product::find($id);

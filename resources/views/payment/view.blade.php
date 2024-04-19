@@ -23,6 +23,7 @@
                 </tr>
             </thead>
             <tbody>
+
                 <tr>
                     <td>{{ $product->product_name }}</td>
                     <td>{{ $product->product_prix }}</td>
@@ -39,7 +40,7 @@
                 </h3>
             </div>
             <div class="col-2">
-                <a href="{{route('payment.store-view',['id' => $product->id, 'client_id' => $client->id ])}}" class="btn btn-dark">إضافة</a>
+                <a href="{{route('payment.store-view',['id' => $product->id, 'client_id' => $client->id ])}}" class="btn btn-primary">إضافة</a>
             </div>
         </div>
           <table class="table table-striped">
@@ -52,24 +53,18 @@
                     <th>العمليات</th>
                 </tr>
             </thead>
-        <tbody>
-            @php
-            $i=0;
-           @endphp 
-            @foreach ($payments as $payment)
-            @php
-            $i++;
-           @endphp 
+            <tbody>
+                @foreach ($payments as $payment)
                 <tr>
-                    <th scope="row">{{$i}}</th>
-                    <td>{{ $payment->amount }}</td>
-                    <td>{{ date('Y-m-d', strtotime($payment->created_at)) }}</td>
-                    <td>{{ date('Y-m-d', strtotime($payment->updated_at)) }}</td>
+                    <th scope="row">{{$id}}</th>
+                    <td>{{$payment->amount }}</td>
+                    <td>{{$payment->created_at }}</td>
+                    <td>{{$payment->updated_at }}</td>
                     <td>
                       <div class="d-grid gap-2 d-md-block">
-                        <form action="{{ route('payment.destroy',['payment_id' => $payment->id ,'client_id' => $client->id]) }}" method="POST">
-                            <a class="btn btn-secondary" href="{{ route('payment.edit',['payment_id' => $payment->id, 'product_id' => $product->id ,'client_id' => $client->id ]) }}">تعديل</a>
-                            @csrf
+                        <form action="{{ route('payment.destroy',['payment_id' => $payment->id,'client_id' => $client->id ]) }}" method="POST">
+                            <a class="btn btn-secondary" href="{{ route('payment.edit',['payment_id' => $payment->id, 'client_id' => $client->id ]) }}">تعديل</a>
+                          @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger">حذف</button>
                         </form> 
@@ -77,6 +72,6 @@
                     </td>
                   </tr>
                 @endforeach
-        </tbody>
+            </tbody>
         </table>
 @endsection
