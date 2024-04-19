@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,6 @@ use App\Http\Controllers\ProductController;
     Route::delete('delete/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
     
 // });
-
 //Products
 Route::get('product-new/{id}', [ProductController::class, 'new_view'])->name('products.store-view');
 Route::post('product-create/{id}', [ProductController::class, 'create'])->name('products.store');
@@ -32,4 +32,11 @@ Route::get('product-edit/{id}/{client_id}', [ProductController::class, 'edit'])-
 Route::put('product-edit/{id}/{client_id}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('product-delete/{id}/{client_id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
+//Payment
+Route::get('payment-new/{id}/{client_id}', [PaymentController::class, 'new_view'])->name('payment.store-view');
+Route::post('payment-create/{id}/{client_id}', [PaymentController::class, 'create'])->name('payment.store');
+Route::get('payment-view/{id}/{client_id}', [PaymentController::class, 'single_view'])->name('payment.view');
+Route::get('payment-edit/{payment_id}/{product_id}/{client_id}', [PaymentController::class, 'edit'])->name('payment.edit');
+Route::put('payment-edit/{id}/{client_id}', [PaymentController::class, 'update'])->name('payment.update');
+Route::delete('payment-delete/{payment_id}/{client_id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
 

@@ -11,7 +11,7 @@ class clientController extends Controller
        $clients=client::paginate(8);
         return view('client.index',compact('clients'));
     }
-    function new_view()  {
+    function new_view(){
         return view('client.create');
     }
     function create(Request $request){

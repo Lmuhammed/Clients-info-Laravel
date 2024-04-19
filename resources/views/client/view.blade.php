@@ -1,7 +1,7 @@
 @extends('../_componets.main')
 @section('main')
 <div class="row justify-content-between mt-3">
-            <div class="col-6">
+            <div class="col-4">
                 <h3 class="h1">
                     معلومات الزبون
                 </h3>
@@ -26,11 +26,14 @@
                   <form action="{{ route('clients.destroy',$client->id) }}" method="Post">
                   @csrf
                   @method('DELETE')
-                  <a class="btn btn-info" href="{{ route('clients.edit',$client->id) }}">تعديل</a>
+                  <a class="btn btn-secondary" href="{{ route('clients.edit',$client->id) }}">تعديل</a>
                   <button type="submit" class="btn btn-danger">حذف</button>
-                  <button type="button" class="btn btn-warning" onclick="print()">تصدير ك PDF</button>
                   </form>
                   </div>
+                  <h6 class="card-subtitle mb-2 mt-2 text-muted">التقارير - PDF</h6>
+                  <button type="button" class="btn btn-secondary mt-2" onclick="print()">بطاقة معلومات الزبون</button>
+                  <button type="button" class="btn btn-success mt-2" onclick="print()">بطاقة الفاتورة</button>
+
                 </div>
               </div>
               <div class="row justify-content-between mt-3">
@@ -40,9 +43,9 @@
                     </h3>
                 </div>
                 <div class="col-2">
-                    <a href="{{route('products.store-view',$client->id)}}" class="btn btn-primary">إضافة</a>
+                    <a href="{{route('products.store-view',$client->id)}}" class="btn btn-dark">إضافة</a>
                 </div>
-            </div>
+              </div>
               <!-- table -->
               <table class="table table-striped border border-4">
                 <thead>
@@ -56,9 +59,15 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @php
+                    $i=0;
+                   @endphp 
                     @foreach ($client->products as $products)
+                    @php
+                    $i++;
+                   @endphp 
                   <tr>
-                      <th scope="row">1</th>
+                      <th scope="row">{{$i}}</th>
                       <td>{{$products->product_name }}</td>
                       <td>{{$products->product_prix }}</td>
                       <td>{{'count payment table'}}</td>
@@ -75,8 +84,8 @@
                           </div>
                       </td>
                     </tr>
-                  </tbody>
                   @endforeach
+                </tbody>
             </table>
         </main>
 @endsection
