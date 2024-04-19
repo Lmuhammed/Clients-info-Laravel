@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام إدارة الزبناء</title>
     <link rel="stylesheet" href="{{asset('Boostrap/css/bootstrap.min.css')}}">
+    <style>
+        @yield("styles")
+    </style>
 </head>
 <body>
    <!-- nav -->
-   <nav class="navbar navbar-dark bg-dark mb-3">
+   <nav class="d-print-none navbar navbar-dark bg-dark mb-3">
         <div class="container">
             <a class="navbar-brand" href="{{ route('clients.index') }}">نظام إدارة الزبناء</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

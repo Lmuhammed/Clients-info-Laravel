@@ -22,8 +22,11 @@ use App\Http\Controllers\ProductController;
     Route::get('edit/{id}', [ClientController::class, 'edit'])->name('clients.edit');
     Route::put('edit/{id}', [ClientController::class, 'update'])->name('clients.update');
     Route::delete('delete/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
-    
+    //Pdfs 
+    Route::get('/pdf_info/{client_id}', [ClientController::class, 'pdf_info'])->name('pdf.info');
+    Route::get('/pdf_payment/{client_id}', [ClientController::class, 'pdf_payment'])->name('pdf.payment');
 // });
+
 //Products
 Route::get('product-new/{id}', [ProductController::class, 'new_view'])->name('products.store-view');
 Route::post('product-create/{id}', [ProductController::class, 'create'])->name('products.store');
