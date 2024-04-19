@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class clientController extends Controller
 {
+    function pdf_info (int $client_id){
+        $client=client::findOrfail($client_id);
+        return view('client.pdf.info',compact('client'));
+    }
+    
+    function pdf_payment (int $client_id){
+    }
     function index(){
        $clients=client::paginate(8);
         return view('client.index',compact('clients'));

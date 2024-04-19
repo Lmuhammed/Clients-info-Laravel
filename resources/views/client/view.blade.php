@@ -31,8 +31,10 @@
                   </form>
                   </div>
                   <h6 class="card-subtitle mb-2 mt-2 text-muted">التقارير - PDF</h6>
-                  <button type="button" class="btn btn-secondary mt-2" onclick="print()">بطاقة معلومات الزبون</button>
-                  <button type="button" class="btn btn-success mt-2" onclick="print()">بطاقة الفاتورة</button>
+                  {{-- <button type="button" class="btn btn-secondary mt-2" onclick="print()">بطاقة معلومات الزبون</button> --}}
+                  {{-- <button type="button" class="btn btn-success mt-2" onclick="print()">بطاقة الفاتورة</button> --}}
+                  <a class="btn btn-secondary mt-2" href="{{ route('pdf.info',$client->id) }}">بطاقة معلومات الزبون</a>
+                  <a class="btn btn-success mt-2" href="{{ route('pdf.payment',$client->id) }}">بطاقة الفاتورة</a>
 
                 </div>
               </div>
