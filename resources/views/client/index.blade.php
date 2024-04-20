@@ -13,11 +13,13 @@
         <main class="pt-3 py-3 my-3 mx-3">
         @if(! $clients->isEmpty())
         <table class="table table-striped border border-4">
-                <thead>
-                    <tr>
+          <thead class="table-dark">
+                      <tr>
                       <th scope="col">#</th>
                       <th scope="col">الإسم الكامل</th>
                       <th scope="col">الهاتف</th>
+                      <th scope="col">تاريخ الإضافة</th>
+                      <th scope="col">تاريخ أخر تعديل</th>
                       <th scope="col">العمليات</th>
                     </tr>
                   </thead>
@@ -33,6 +35,8 @@
                       <th scope="row">{{$i}}</th>
                       <td>{{$client->full_name}}</td>
                       <td>{{$client->phone}}</td>
+                      <td>{{date('Y-m-d', strtotime($client->created_at))}}</td>
+                      <td>{{date('Y-m-d', strtotime($client->updated_at))}}</td>
                       <td>
                         <div class="d-grid gap-2 d-md-block">
                         <form action="{{ route('clients.destroy',$client->id) }}" method="Post">

@@ -16,9 +16,12 @@ class PaymentController extends Controller
     }
 
     function create(Request $request,int $id,int $client_id){
+        $product = Product::findOrfail($id);
+        $totalPayments = $product->payments()->sum('amount');
+        $remainingAmount = $product->product_prix - $totalPayments;
         $data=$request->validate([
-            'amount' => 'required',
-        ]);
+            'amount' => 'required|numeric|max:'.$remainingAmount,
+        ]);        
         $data['product_id']=$id;
         Payment::create($data);
         return redirect()->route('products.view',['id' => $data['product_id'],'client_id' => $client_id])

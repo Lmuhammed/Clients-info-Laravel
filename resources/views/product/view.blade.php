@@ -13,11 +13,12 @@
           </div>
       <h1>معلومات المنتوج</h1>
           <table class="table table-striped">
-            <thead>
-                <tr>
+            <thead class="table-dark">
+                    <tr>
                     <th> المنتوج</th>
                     <th>الثمن</th>
                     <th>الباقي</th>
+                    <th>تم الدفع</th>
                     <th>تاريخ الطلب</th>
                     <th>تاريخ أخر تعديل</th>
                 </tr>
@@ -26,9 +27,10 @@
                 <tr>
                     <td>{{ $product->product_name }}</td>
                     <td>{{ $product->product_prix }}</td>
-                    <td>{{ '-' }}</td>
-                    <td>{{ $product->created_at }}</td>
-                    <td>{{ $product->updated_at }}</td>
+                    <td>{{$data['produc_to_pay']}}</td>
+                    <td>{{ $result = $data['produc_to_pay']== 0 ? '✅' : '❌' ; }}</td>
+                    <td>{{date('Y-m-d', strtotime($product->created_at))}}</td>
+                    <td>{{date('Y-m-d', strtotime($product->updated_at))}}</td>
                 </tr>
             </tbody>
         </table>
@@ -38,12 +40,14 @@
                     سجل الدفع
                 </h3>
             </div>
+            @if (!$data['produc_to_pay'] == 0 )
             <div class="col-2">
                 <a href="{{route('payment.store-view',['id' => $product->id, 'client_id' => $client->id ])}}" class="btn btn-dark">إضافة</a>
             </div>
+            @endif
         </div>
           <table class="table table-striped">
-            <thead>
+            <thead class="table-dark">
                 <tr>
                     <th>*</th>
                     <th>مبلغ الدفعة</th>
