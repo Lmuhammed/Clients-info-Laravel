@@ -27,7 +27,15 @@ class ProductController extends Controller
         $product=product::findOrfail($id);
         $client=client::find($client_id);
         $payments = $product->payments;
-        return view('product.view',compact('product','client','payments'));
+        $amoutSum = $product->payments->sum(function ($payment) {
+        return $payment->amount;
+        });
+        $data = array(
+            'product_amout' => $amoutSum,
+            'product_price' => $product->product_prix,
+            'produc_to_pay' => ($product->product_prix)-$amoutSum
+        );
+        return view('product.view',compact('product','client','payments','data'));
     }
     function edit(int $id , int $client_id) {
         $products=product::find($id);

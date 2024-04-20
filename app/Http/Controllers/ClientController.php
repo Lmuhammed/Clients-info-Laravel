@@ -34,7 +34,7 @@ class clientController extends Controller
         ->with('success','تمت إضافة زبون جديد بنجاح');
     }
     function single_view(int $id)  {
-        $client=client::findOrfail($id);
+        $client=client::findOrfail($id);        
         return view('client.view',compact('client'));
     }
     function edit(int $id) {

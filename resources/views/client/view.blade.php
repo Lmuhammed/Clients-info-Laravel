@@ -50,13 +50,13 @@
               </div>
               <!-- table -->
               <table class="table table-striped border border-4">
-                <thead>
-                    <tr>
+                <thead class="table-dark">
+                  <tr>
                       <th scope="col">#</th>
                       <th scope="col">المنتوج</th>
                       <th scope="col">ثمنه</th>
-                      <th scope="col">المدفوع</th>
-                      <th scope="col">الباقي</th>
+                      <th scope="col">تاريخ الإضافة</th>
+                      <th scope="col">تاريخ أخر تعديل</th>
                       <th scope="col">العمليات</th>
                     </tr>
                   </thead>
@@ -72,8 +72,8 @@
                       <th scope="row">{{$i}}</th>
                       <td>{{$products->product_name }}</td>
                       <td>{{$products->product_prix }}</td>
-                      <td>{{'count payment table'}}</td>
-                      <td>{{'prix - count payment table'}}</td>
+                      <td>{{date('Y-m-d', strtotime($products->created_at))}}</td>
+                      <td>{{date('Y-m-d', strtotime($products->updated_at))}}</td>
                       <td>
                         <div class="d-grid gap-2 d-md-block">
                           <form action="{{ route('products.destroy',['id' => $products->id, 'client_id' => $client->id ]) }}" method="POST">
