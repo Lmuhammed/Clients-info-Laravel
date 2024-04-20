@@ -1,0 +1,4 @@
+support passing meesages with routes in Middlewares (auth,guest)
+tweaking UI & forms (styling , @old ,Form validation messages output)
+create form control classes (Fro users,clients,payments,products)
+
