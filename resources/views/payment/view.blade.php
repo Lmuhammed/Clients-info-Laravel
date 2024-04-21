@@ -5,7 +5,7 @@
               <div class="col-md-4">
                   <div class="card mb-3">
                       <div class="card-body">
-                          <a href="{{route('clients.view',$client->id)}}" class="h3">{{ $client->full_name }}</a>
+                          <a href="{{route('clients.view',$client->id)}}" class="h3">{{$client->full_name}}</a>
                           <p class="card-text">{{ $client->phone }}</p>
                       </div>
                   </div>

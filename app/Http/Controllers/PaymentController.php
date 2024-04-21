@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    function new_view(int $id , int $client_id)  {
+    function new_view(int $id , int $client_id, int $to_pay)  {
         $product=product::find($id);
+        $product_price=$product->product_prix;
         $client=client::find($client_id);
-        return view('payment.create',compact('product','client'));
+        return view('payment.create',compact('product','client','to_pay','product_price'));
     }
 
     function create(Request $request,int $id,int $client_id){

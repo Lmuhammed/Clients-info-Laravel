@@ -1,7 +1,7 @@
 @extends('../_componets.main')
 @section('main')
             <h3 class="h2">
-                إضافة منتوج جديد
+                إضافة دٌفعة جديدة 
             </h3>
             <div class="row justify-content-between">
                 <div class="col-6">
@@ -10,18 +10,18 @@
                       <div class="card border border-4" style="width: 18rem;">
                         <div class="card-body">
                           <h6 class="card-subtitle mt-3 text-muted">الزبون</h6>
-                          <h5 class="card-title mt-2">{{ $client->full_name}}</h5>
+                          <a class="text-decoration-none" href="{{route('clients.view',$client->id)}}">{{$client->full_name}}</a>
                           <h6 class="card-subtitle mb-2 text-muted">المنتوج</h6>
                           <p class="card-text">
-                          {{ $product->product_name}}
+                            <a class="text-decoration-none" href="{{route('products.view',['id' => $product->id, 'client_id' => $client->id])}}">{{$product->product_name}}</a>
                           </p>
                           <h6 class="card-subtitle mb-2 text-muted">الثمن</h6>
                           <p class="card-text">
-                          {{ $product->prix}}
+                          {{ $product_price}}
                           </p>
                           <h6 class="card-subtitle mb-2 text-muted">الباقي</h6>
                           <p class="card-text">
-                          {{ '222' }}
+                          {{ $to_pay }}
                           </p>
                           </div>
                         </div>
