@@ -40,6 +40,6 @@
       {{date("Y-m-d")}}
       </h3>      
       <div class="h1 mt-3 mb-3">
-        <button class="btn btn-dark btn-lg d-print-none" onclick="print()">طباعة التقرير</button>
+        <button class="btn btn-dark btn-lg d-print-none" onclick="print()" id="print">طباعة التقرير</button>
       </div>
 @endsection

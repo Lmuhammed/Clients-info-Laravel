@@ -25,7 +25,7 @@ Route::get('product-edit/{id}/{client_id}', [ProductController::class, 'edit'])-
 Route::put('product-edit/{id}/{client_id}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('product-delete/{id}/{client_id}', [ProductController::class, 'destroy'])->name('products.destroy');
 //Payment
-Route::get('payment-new/{id}/{client_id}', [PaymentController::class, 'new_view'])->name('payment.store-view');
+Route::get('payment-new/{id}/{client_id}/{to_pay}', [PaymentController::class, 'new_view'])->name('payment.store-view');
 Route::post('payment-create/{id}/{client_id}', [PaymentController::class, 'create'])->name('payment.store');
 Route::get('payment-view/{id}/{client_id}', [PaymentController::class, 'single_view'])->name('payment.view');
 Route::get('payment-edit/{payment_id}/{product_id}/{client_id}', [PaymentController::class, 'edit'])->name('payment.edit');
@@ -36,7 +36,6 @@ Route::post('login/new', [CustomAuthController::class,   'login'])->name('login.
 Route::post('register/store', [CustomAuthController::class,   'new_user'])->name('register.custom');
 Route::get('signout',   [CustomAuthController::class,   'sing_out'])->name('signout');
 });
-
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login',     [CustomAuthController::class,   'login_view'])->name('login');
     Route::get('register',  [CustomAuthController::class,   'register_view'])->name('register');
