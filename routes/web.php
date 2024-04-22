@@ -32,11 +32,12 @@ Route::get('payment-edit/{payment_id}/{product_id}/{client_id}', [PaymentControl
 Route::put('payment-edit/{id}/{client_id}', [PaymentController::class, 'update'])->name('payment.update');
 Route::delete('payment-delete/{payment_id}/{client_id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
 // user Auth
-Route::post('login/new', [CustomAuthController::class,   'login'])->name('login.custom');
-Route::post('register/store', [CustomAuthController::class,   'new_user'])->name('register.custom');
 Route::get('signout',   [CustomAuthController::class,   'sing_out'])->name('signout');
 });
 Route::group(['middleware' => 'guest'], function () {
+    // user Auth
+    Route::post('login/new', [CustomAuthController::class,   'login'])->name('login.custom');
+    Route::post('register/store', [CustomAuthController::class,   'new_user'])->name('register.custom');
     Route::get('login',     [CustomAuthController::class,   'login_view'])->name('login');
     Route::get('register',  [CustomAuthController::class,   'register_view'])->name('register');
 });
