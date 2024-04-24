@@ -11,7 +11,8 @@ class ProductController extends Controller
 {
     
     function new_view(int $id)  {
-        return view('product.create',compact('id'));
+        $client=client::find($id);
+        return view('product.create',compact('id','client'));
     }
     function create(Request $request,int $id){
         $data=$request->validate([
@@ -39,7 +40,8 @@ class ProductController extends Controller
     }
     function edit(int $id , int $client_id) {
         $products=product::find($id);
-        return view('product.edit',compact('products','client_id')); 
+        $client=client::find($client_id);
+        return view('product.edit',compact('products','client_id','client')); 
     }
     function update(Request $request,int $id,int $client_id){
         $data=$request->validate([

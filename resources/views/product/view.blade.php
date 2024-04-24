@@ -3,7 +3,7 @@
           <h1>معلومات الزبون</h1>
           <div class="row">
               <div class="col-md-4">
-                  <div class="card mb-3">
+                  <div class="card mb-3 gold-effect">
                       <div class="card-body">
                           <a class="text-decoration-none h2" href="{{route('clients.view',$client->id)}}" class="h3">{{ $client->full_name }}</a>
                           <p class="card-text">{{ $client->phone }}</p>
@@ -12,7 +12,7 @@
               </div>
           </div>
       <h1>معلومات المنتوج</h1>
-          <table class="table table-striped">
+          <table class="table table-striped gold-effect">
             <thead class="table-dark">
                     <tr>
                     <th>#</th>
@@ -53,7 +53,7 @@
             </div>
             @endif
         </div>
-          <table class="table table-striped">
+          <table class="table table-striped gold-effect">
             <thead class="table-dark">
                 <tr>
                     <th>#</th>
@@ -79,7 +79,7 @@
                     <td>
                       <div class="d-grid gap-2 d-md-block">
                         <form action="{{ route('payment.destroy',['payment_id' => $payment->id ,'client_id' => $client->id]) }}" method="POST">
-                            <a class="btn btn-secondary" href="{{ route('payment.edit',['payment_id' => $payment->id, 'product_id' => $product->id ,'client_id' => $client->id ]) }}">تعديل</a>
+                            <a class="btn btn-secondary" href="{{ route('payment.edit',['payment_id' => $payment->id, 'product_id' => $product->id ,'client_id' => $client->id ,'to_pay' => $data['produc_to_pay']]) }}">تعديل</a>
                             @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger">حذف</button>

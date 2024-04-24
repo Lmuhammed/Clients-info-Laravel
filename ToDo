@@ -8,7 +8,10 @@ use Bootstrap Icons
 )
 - create form control classes (Fro users,clients,payments,products)
 - add function to reuse this code in all forms :
-
 @if ($errors->has('username'))
         <span class="text-danger">{{ $errors->first('username') }}</span>
 @endif
+- add user id => addeby to stored with clients (then make authorisation ; to prevent auth()->id!=== addeby cant remove edit client)
+- add forelse => instedof foreach 
+- add styles to invoices
+- laravel blade componets for client,product info

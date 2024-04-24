@@ -34,11 +34,11 @@ class PaymentController extends Controller
         $client=client::find($client_id);
         return view('payment.view',compact('product','client'));
     }
-    function edit(int $payment_id , int $product_id,int $client_id) {
+    function edit(int $payment_id ,int $product_id,int $client_id,int $to_pay) {
         $payment=Payment::find($payment_id);
         $client=client::find($client_id);
         $product=product::find($product_id);
-        return view('payment.edit',compact('payment','client','product')); 
+        return view('payment.edit',compact('payment','client','product','to_pay')); 
     }
 
     function update(Request $request,int $id,int $client_id){

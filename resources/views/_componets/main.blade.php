@@ -6,13 +6,24 @@
     <title>نظام إدارة الزبناء</title>
     <link rel="stylesheet" href="{{asset('Boostrap/css/bootstrap.min.css')}}">
     <style>
+      .gold-effect {
+  padding: 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+.gold-effect:hover {
+  background-color: #ccffcc; /* Change the background color on hover to a darker gold shade */
+  box-shadow: 0 0 10px #000066; /* Add a subtle glow effect */
+}
       @yield("styles")
     </style>
 </head>
 <body>
    <!-- nav -->
+   
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-        <div class="container">
+    <div class="container">
       {{-- nav brand --}}
     <a class="navbar-brand" href="{{route('clients.index')}}">نظام إدارة معلومات الزبناء</a>
       {{-- end nav brand --}}
