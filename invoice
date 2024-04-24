@@ -1,0 +1,40 @@
+
+<body>
+    <div class="invoice">
+        <h1>Invoice</h1>
+        <div class="details">
+            <p><strong>Invoice Number:</strong> INV-001</p>
+            <p><strong>Date:</strong> January 1, 2022</p>
+            <p><strong>Due Date:</strong> January 31, 2022</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product 1</td>
+                    <td>2</td>
+                    <td>$10.00</td>
+                    <td>$20.00</td>
+                </tr>
+                <tr>
+                    <td>Product 2</td>
+                    <td>1</td>
+                    <td>$15.00</td>
+                    <td>$15.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total">
+            <p><strong>Total:</strong> $35.00</p>
+        </div>
+    </div>
+</body>
+</html>
+

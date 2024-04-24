@@ -15,7 +15,7 @@ Route::get('edit/{id}', [ClientController::class, 'edit'])->name('clients.edit')
 Route::put('edit/{id}', [ClientController::class, 'update'])->name('clients.update');
 Route::delete('delete/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
 //Pdfs 
-Route::get('/pdf_info/{client_id}', [ClientController::class, 'pdf_info'])->name('pdf.info');
+// commented , will used later Route::get('/pdf_info/{client_id}', [ClientController::class, 'pdf_info'])->name('pdf.info');
 Route::get('/pdf_payment/{client_id}', [ClientController::class, 'pdf_payment'])->name('pdf.payment');
 //Products
 Route::get('product-new/{id}', [ProductController::class, 'new_view'])->name('products.store-view');
@@ -27,8 +27,8 @@ Route::delete('product-delete/{id}/{client_id}', [ProductController::class, 'des
 //Payment
 Route::get('payment-new/{id}/{client_id}/{to_pay}', [PaymentController::class, 'new_view'])->name('payment.store-view');
 Route::post('payment-create/{id}/{client_id}', [PaymentController::class, 'create'])->name('payment.store');
-Route::get('payment-view/{id}/{client_id}', [PaymentController::class, 'single_view'])->name('payment.view');
-Route::get('payment-edit/{payment_id}/{product_id}/{client_id}', [PaymentController::class, 'edit'])->name('payment.edit');
+Route::get('payment-view/{id}/{client_id}/{to_pay}', [PaymentController::class, 'single_view'])->name('payment.view');
+Route::get('payment-edit/{payment_id}/{product_id}/{client_id}/{to_pay}', [PaymentController::class, 'edit'])->name('payment.edit');
 Route::put('payment-edit/{id}/{client_id}', [PaymentController::class, 'update'])->name('payment.update');
 Route::delete('payment-delete/{payment_id}/{client_id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
 // user Auth

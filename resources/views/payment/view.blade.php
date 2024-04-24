@@ -63,7 +63,7 @@
                     <td>
                       <div class="d-grid gap-2 d-md-block">
                         <form action="{{ route('payment.destroy',['payment_id' => $payment->id,'client_id' => $client->id ]) }}" method="POST">
-                            <a class="btn btn-secondary" href="{{ route('payment.edit',['payment_id' => $payment->id, 'client_id' => $client->id ]) }}">تعديل</a>
+                            <a class="btn btn-secondary" href="{{ route('payment.edit',['payment_id' => $payment->id, 'client_id' => $client->id ,'to_pay']) }}">تعديل</a>
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger">حذف</button>

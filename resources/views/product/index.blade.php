@@ -12,7 +12,7 @@
         </div>
         <main class="pt-3 py-3 my-3 mx-3">
         @if(! $clients->isEmpty())
-        <table class="table table-striped border border-4">
+        <table class="table table-striped gold-effect border border-4">
                 <thead>
                     <tr>
                       <th scope="col">#</th>
