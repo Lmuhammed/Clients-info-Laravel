@@ -15,3 +15,6 @@ use Bootstrap Icons
 - add forelse => instedof foreach 
 - add styles to invoices
 - laravel blade componets for client,product info
+
+-use laravel NAMING convention : (file name laravel NAMING convention)
+

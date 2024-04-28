@@ -1,4 +1,4 @@
-@extends('../_componets.main')
+@extends('../_partials.main')
 @section('main')
 <div class="row mt-4">
   <div class="col-lg-5 col-sm-10 col-md-6 m-auto rounded-top bg-white border border-3">

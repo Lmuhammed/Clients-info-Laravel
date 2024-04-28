@@ -1,4 +1,4 @@
-@extends('../../_componets.main')
+@extends('../../_partials.main')
 @section('main')
 <h1 class="mt-4 mb-4 text-center">بطاقة فاتورة</h1>
     <div class="row">

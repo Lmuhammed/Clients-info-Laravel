@@ -1,4 +1,4 @@
-@extends('../_componets.main')
+@extends('../_partials.main')
 @section('main')
 <div class="row justify-content-between">
         <div class="col-3">
