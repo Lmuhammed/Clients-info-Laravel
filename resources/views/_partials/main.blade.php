@@ -35,6 +35,9 @@
 </nav>
     <!-- endnav -->
     <div class="container pt-1 pb-1">
+    @if(session('msg-color') && session('message'))
+      <x-main.alert message="{{session('message')}}" color="{{session('msg-color')}}"/>
+    @endif
     @yield("main")
     </div>
   <script src="{{asset('Boostrap/js/bootstrap.bundle.min.js')}}"></script>

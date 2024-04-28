@@ -24,10 +24,12 @@ class CustomAuthController extends Controller
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->route('clients.index')
-            ->with('success','تم تسجيل الدخول بنجاح ، أهلا بك');
+            ->with('msg-color','success')
+            ->with('message','تم تسجيل الدخول بنجاح ، أهلا بك');
         }
         return redirect()->route('login')
-        ->with('danger','معلومات الدخول غير صحيحة ، المرجوا التحقق من المعطيات');
+        ->with('msg-color','danger')
+        ->with('message','معلومات الدخول غير صحيحة ، المرجوا التحقق من المعطيات');
     }
     
     public function new_user(Request $request)
@@ -40,7 +42,8 @@ class CustomAuthController extends Controller
         $data = $request->only('full_name','username', 'password');
         $check = $this->create($data);
         return redirect()->route('clients.index')
-        ->with('success','تم إنشاء الحساب بنجاح ، أهلا بك');
+        ->with('msg-color','success')
+        ->with('message','تم إنشاء الحساب بنجاح ، أهلا بك');
     }
     public function create(array $data)
     {
@@ -55,6 +58,7 @@ class CustomAuthController extends Controller
         Session::flush();
         Auth::logout();
         return redirect()->route('login')
-        ->with('success','تم تسجيل الخروج بنجاح');
+        ->with('msg-color','warning')
+        ->with('message','تم تسجيل الخروج بنجاح');
     }
 }
