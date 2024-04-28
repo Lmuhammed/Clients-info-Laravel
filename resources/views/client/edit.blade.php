@@ -1,4 +1,4 @@
-@extends('../_componets.main')
+@extends('../_partials.main')
 @section('main')
 <main class="">
             <h3 class="h2">

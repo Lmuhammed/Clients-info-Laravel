@@ -5,19 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام إدارة الزبناء</title>
     <link rel="stylesheet" href="{{asset('Boostrap/css/bootstrap.min.css')}}">
-    <style>
-      .gold-effect {
-  padding: 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s; /* Smooth transition effect */
-}
-
-.gold-effect:hover {
-  background-color: #ccffcc; /* Change the background color on hover to a darker gold shade */
-  box-shadow: 0 0 10px #000066; /* Add a subtle glow effect */
-}
-      @yield("styles")
-    </style>
+    <link rel="stylesheet" href="{{asset('CostumStyles/main.css')}}">
+      {{-- @yield("styles") --}}
 </head>
 <body>
    <!-- nav -->
@@ -45,26 +34,7 @@
   </div>
 </nav>
     <!-- endnav -->
-
     <div class="container pt-1 pb-1">
-       <!-- success message   -->
-    @if(session('success'))
-    <div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">رسالة</h4>
-    <hr>
-    <p> {{ session('success') }} </p>
-    </div>
-    @endif
-   <!-- end message -->
-   <!-- danger message   -->
-   @if(session('danger'))
-    <div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading">رسالة</h4>
-    <hr>
-    <p> {{ session('danger') }} </p>
-    </div>
-    @endif
-   <!-- end message -->
     @yield("main")
     </div>
   <script src="{{asset('Boostrap/js/bootstrap.bundle.min.js')}}"></script>
