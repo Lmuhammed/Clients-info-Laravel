@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class clientController extends Controller
 {
+    function search (Request $request){
+    $input=$request->validate([
+        'search' => 'required',
+    ]);
+    $search=$input['search'];
+    $clients = client::where('full_name', 'like', '%'.$search.'%')
+                    ->orWhere('phone', 'like', '%'.$search.'%')
+                    ->paginate(10);
+     return view('client.index',compact('clients'));
+
+    } 
+
     function pdf_info (int $client_id){
         $client=client::findOrfail($client_id);
         return view('client.pdf.info',compact('client'));
@@ -51,7 +63,7 @@ class clientController extends Controller
         $client->update($data);
         return redirect()->route('clients.index')
         ->with('msg-color','success')
-        ->with('message','تم تعديل معلومات الزبون بنجاح');
+        ->with( 'message','تم تعديل معلومات الزبون بنجاح');
     }
     function destroy(int $id){
         $client=client::find($id);
