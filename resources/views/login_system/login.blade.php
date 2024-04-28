@@ -11,20 +11,14 @@
           <label for="username" class="input-group-text">إسم المستخدم</label>
           <input type="text" id="username" class="form-control" placeholder="مثال : ahmmed3, anas98 ...." name="username">
        </div>
-       {{-- show errors --}}
-       @if ($errors->has('username'))
-        <span class="text-danger">{{ $errors->first('username') }}</span>
-       @endif
-       {{-- end show error  --}}
+      {{-- Component show error --}}
+      <x-main.forminputerror name="username"/>
        <div class="input-group mb-3">
           <label for="password" class="input-group-text">كلمة السر</label>
           <input type="password" name="password" id="password" class="form-control">
        </div>
-       {{-- show errors --}}
-       @if ($errors->has('password'))
-        <span class="text-danger">{{ $errors->first('password') }}</span>
-       @endif
-       {{-- end show error  --}}
+      {{-- Component show error --}}
+      <x-main.forminputerror name="password"/>
        <div class="d-grid mb-3">
           <button type="submit" class="btn btn-success">دخول</button>
        </div>

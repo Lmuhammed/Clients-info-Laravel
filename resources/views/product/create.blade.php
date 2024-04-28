@@ -23,10 +23,14 @@
                             <label for="full_name" class="form-label">المنتوج</label>
                             <input type="text" class="form-control" id="product_name" name="product_name">
                         </div>
+                        {{-- Component show error --}}
+                        <x-main.forminputerror name="product_name"/>
                         <div class="mb-3">
                             <label for="product_prix" class="form-label">ثمنه</label>
                             <input type="text" class="form-control" id="product_prix" name="product_prix">
                         </div>
+                        {{-- Component show error --}}
+                        <x-main.forminputerror name="product_prix"/>
                         <div class="d-grid mb-4">
                             <button class="btn btn-success" type="submit">إضافة</button>
                         </div>

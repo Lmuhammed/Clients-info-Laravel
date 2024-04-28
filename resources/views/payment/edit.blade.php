@@ -30,6 +30,8 @@
                                 <label for="amount" class="form-label h3">مبلغ الدفعة</label>
                                 <input type="text" class="form-control" id="amount" name="amount" value="{{$payment->amount}}">
                              </div>
+                         {{-- Component show error --}}
+                        <x-main.forminputerror name="amount"/>
                             <div class="d-grid mb-3">    
                             <button class="btn btn-success h3" type="submit">تعديل</button>
                             </div>
