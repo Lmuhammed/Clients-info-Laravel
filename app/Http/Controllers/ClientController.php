@@ -31,7 +31,8 @@ class clientController extends Controller
         ]);
         client::create($data);
         return redirect()->route('clients.index')
-        ->with('success','تمت إضافة زبون جديد بنجاح');
+        ->with('message', 'تمت إضافة زبون جديد بنجاح')
+        ->with('msg-color','success');
     }
     function single_view(int $id)  {
         $client=client::findOrfail($id);        
@@ -49,13 +50,15 @@ class clientController extends Controller
         $client=client::find($id);
         $client->update($data);
         return redirect()->route('clients.index')
-        ->with('success','تم تعديل معلومات الزبون بنجاح');
+        ->with('msg-color','success')
+        ->with('message','تم تعديل معلومات الزبون بنجاح');
     }
     function destroy(int $id){
         $client=client::find($id);
         $client->delete();
         return redirect()->route('clients.index')
-        ->with('danger','تم حذف معلومات الزبون بنجاح');
+        ->with('msg-color','danger')
+        ->with('message','تم حذف معلومات الزبون بنجاح');
 
     }
 }

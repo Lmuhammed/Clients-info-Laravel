@@ -22,7 +22,8 @@ class ProductController extends Controller
         $data['client_id']=$id;
         product::create($data);
         return redirect()->route('clients.view',$id)
-        ->with('success','تمت إضافة معلومات المنتوج بنجاح');
+        ->with('msg-color','success')
+        ->with('message','تم تعديل معلومات المنتوج بنجاح');
     }
     function single_view(int $id,int $client_id){
         $product=product::findOrfail($id);
@@ -51,13 +52,15 @@ class ProductController extends Controller
         $product=product::find($id);
         $product->update($data);
         return redirect()->route('clients.view',$client_id)
-        ->with('success','تم تعديل معلومات المنتوج بنجاح');
+        ->with('msg-color','success')
+        ->with('message','تم تعديل معلومات المنتوج بنجاح');
     }
     function destroy(int $id ,int $client_id){
         $product=product::find($id);
         $product->delete();
         return redirect()->route('clients.view',$client_id)
-        ->with('danger','تم حذف معلومات المنتوج بنجاح');
+        ->with('msg-color','danger')
+        ->with('message','تم حذف معلومات المنتوج بنجاح');
 
     }
 }

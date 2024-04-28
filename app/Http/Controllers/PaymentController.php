@@ -26,7 +26,8 @@ class PaymentController extends Controller
         $data['product_id']=$id;
         Payment::create($data);
         return redirect()->route('products.view',['id' => $data['product_id'],'client_id' => $client_id])
-        ->with('success','تمت إضافة معلومات المنتوج بنجاح');
+        ->with('msg-color','success')
+        ->with('message','تمت إضافة معلومات المنتوج بنجاح');
     }
 
     function single_view(int $id,$client_id){
@@ -48,13 +49,15 @@ class PaymentController extends Controller
         $payment=Payment::find($id);
         $payment->update($data);
         return redirect()->route('products.view',['id' => $payment->product_id,'client_id' => $client_id])
-        ->with('success','تم تعديل معلومات المنتوج بنجاح');
+        ->with('msg-color','success')
+        ->with('message','تم تعديل معلومات المنتوج بنجاح');
     }
     function destroy(int $payment_id ,int $client_id){
         $payment=Payment::find($payment_id);
         $id=$payment->product_id;
         $payment->delete();
         return redirect()->route('products.view',['id' => $id,'client_id' => $client_id])
-        ->with('danger','تم حذف معلومات المنتوج بنجاح');
+        ->with('msg-color','danger')
+        ->with('message','تم حذف معلومات المنتوج بنجاح');
     }
 }
