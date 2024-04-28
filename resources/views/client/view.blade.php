@@ -3,24 +3,12 @@
 <div class="row mt-3 mb-3">
   {{-- client product table --}}
   <div class="col-lg-8 col-sm-10 col-md-6 bg-white rounded-top mx-auto">
-    {{-- client info card --}}
-    <div class="row justify-content-between mb-2">
-      <div class="col-lg-6 col-sm-6 col-md-6">
-              <h3 class="h1">
-                معلومات الزبون
-              </h3>
-          </div>
-          <div class="col-lg-3 col-sm-3 col-md-2">            
-            <form action="{{ route('clients.destroy',$client->id) }}" method="Post">
-              @csrf
-              @method('DELETE')
-              <a class="btn btn-secondary" href="{{ route('clients.edit',$client->id) }}">تعديل</a>
-              <button type="submit" class="btn btn-danger">حذف</button>
-              </form>
-          </div>
-      </div>
-    {{-- end client  action  --}}
-    <x-client.clientinfo :client="$client" />
+    {{-- client info  --}}
+    {{-- client  action  --}}
+    <x-client.clientbar :client="$client" />
+    {{-- end client  action  --}} 
+    <x-client.clientinfo :client="$client" /> 
+    {{-- end client info  --}}
     {{-- product bar --}}
     <div class="row justify-content-between">
       <div class="col-lg-4 col-sm-6 col-md-6">
