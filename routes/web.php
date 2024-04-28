@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomAuthController;
 
 Route::group(['middleware' => ['auth']], function () {
 //clients
+Route::get('/search', [ClientController::class, 'search'])->name('clients.search');
 Route::get('/', [ClientController::class, 'index'])->name('clients.index');
 Route::get('new', [ClientController::class, 'new_view'])->name('clients.store-view');
 Route::post('create', [ClientController::class, 'create'])->name('clients.store');

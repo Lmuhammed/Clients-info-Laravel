@@ -6,10 +6,12 @@
                     لائحة الزبناء
                 </h3>
             </div>
-            <div class="col-2">            
+            <div class="col-2 d-grid">            
             <a class="btn btn-dark" href="{{ route('clients.store-view') }}">إضافة زبون جديد</a>
             </div>
         </div>
+      {{-- client search  --}}
+    <x-client.searchclient /> 
         <main class="pt-3 py-3 my-3 mx-3">
         @if(! $clients->isEmpty())
         <table class="table table-striped gold-effect border border-4">
@@ -58,8 +60,10 @@
         </span>
         @endif
         </main>
-        
-        <div class="mx-3 my-3 px-3 py-3"> 
-        {{ $clients->links() }}
-        </div>
+        @if ($clients->links())
+          <div class="mx-3 my-3 px-3 py-3"> 
+          {{ $clients->links() }}
+          </div>
+         @endif
+     
 @endsection
