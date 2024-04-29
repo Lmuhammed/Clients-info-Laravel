@@ -16,7 +16,7 @@
         @if(! $clients->isEmpty())
         <table class="table table-striped gold-effect border border-4">
           <thead class="table-dark">
-                      <tr>
+                    <tr>
                       <th scope="col">#</th>
                       <th scope="col">الإسم الكامل</th>
                       <th scope="col">الهاتف</th>

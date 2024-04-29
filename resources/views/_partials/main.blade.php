@@ -11,7 +11,7 @@
 <body>
    <!-- nav -->
    
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 d-print-none">
     <div class="container">
       {{-- nav brand --}}
     <a class="navbar-brand" href="{{route('clients.index')}}">نظام إدارة معلومات الزبناء</a>
