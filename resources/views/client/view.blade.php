@@ -7,7 +7,12 @@
     {{-- client  action  --}}
     <x-client.clientbar :client="$client" />
     {{-- end client  action  --}} 
-    <x-client.clientinfo :client="$client" /> 
+    <x-client.clientinfo :client="$client">
+      {{-- slot to view print button --}}
+      <h6 class="card-subtitle  mt-2 text-muted">التقارير - PDF</h6>
+      {{-- <a class="btn btn-secondary mt-2" href="{{ htmlspecialchars(route('pdf.info',$client->id).'#print') }}">بطاقة معلومات الزبون</a> --}}
+      <a class="btn btn-success mt-2" href="{{ htmlspecialchars(route('pdf.payment',$client->id).'#print') }}">بطاقة الفاتورة</a>          
+    </x-client.clientinfo> 
     {{-- end client info  --}}
     {{-- product bar --}}
     <div class="row justify-content-between">
