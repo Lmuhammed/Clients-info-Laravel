@@ -1,4 +1,5 @@
 @extends('../_partials.main')
+@section('title', 'تعديل معلومات المنتوج ')
 @section('main')
     <div class="row mt-4">
        

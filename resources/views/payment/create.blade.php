@@ -1,4 +1,5 @@
 @extends('../_partials.main')
+@section('title', 'إضافة دٌفعة جديدة')
 @section('main')
 <div class="row">
                    <!-- card info -->

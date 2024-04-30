@@ -1,4 +1,5 @@
 @extends('../_partials.main')
+@section('title', 'تعديل معلومات الزبون')
 @section('main')
       <div class="row mt-4">
         <div class="col-lg-5 col-sm-10 col-md-6 bg-white m-auto rounded-top border border-3">

@@ -1,4 +1,5 @@
 @extends('../_partials.main')
+@section('title', 'معلومات الزبون')
 @section('main')
 <div class="row mt-3 mb-3">
   {{-- client & product table --}}
