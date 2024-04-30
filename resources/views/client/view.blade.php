@@ -1,30 +1,21 @@
 @extends('../_partials.main')
 @section('main')
 <div class="row mt-3 mb-3">
-  {{-- client product table --}}
-  <div class="col-lg-8 col-sm-10 col-md-6 bg-white rounded-top mx-auto">
+  {{-- client & product table --}}
+<div class="col-lg-8 col-sm-10 col-md-6 bg-white rounded-top mx-auto">
+<x-main.bar name="لوحة معلومات الزبون"/>
     {{-- client info  --}}
-    {{-- client  action  --}}
-    <x-client.clientbar :client="$client" />
-    {{-- end client  action  --}} 
     <x-client.clientinfo :client="$client">
       {{-- slot to view print button --}}
       <h6 class="card-subtitle  mt-2 text-muted">التقارير - PDF</h6>
       {{-- <a class="btn btn-secondary mt-2" href="{{ htmlspecialchars(route('pdf.info',$client->id).'#print') }}">بطاقة معلومات الزبون</a> --}}
       <a class="btn btn-success mt-2" href="{{ htmlspecialchars(route('pdf.payment',$client->id).'#print') }}">بطاقة الفاتورة</a>          
     </x-client.clientinfo> 
-    {{-- end client info  --}}
     {{-- product bar --}}
-    <div class="row justify-content-between">
-      <div class="col-lg-4 col-sm-6 col-md-6">
-              <h3 class="h1">
-                المنتوجات
-              </h3>
-          </div>
-          <div class="col-lg-2 col-sm-3 col-md-2">            
-            <a href="{{route('products.store-view',$client->id)}}" class="btn btn-success">إضافة</a>
-          </div>
-      </div>
+    <x-main.bar name="المنتوجات">
+      {{-- slot to button to add new product --}}
+      <a href="{{route('products.store-view',$client->id)}}" class="btn btn-success">إضافة</a>
+      </x-main.bar> 
     <!-- table -->
       <table class="table table-striped mt-2 mb-2 gold-effect">
         <thead class="table-dark">

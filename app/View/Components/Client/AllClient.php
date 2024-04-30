@@ -6,14 +6,16 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Searchclient extends Component
+class AllClient extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $clients;
+    public function __construct($clients)
     {
-        //
+        $this->clients=$clients;
+
     }
 
     /**
@@ -21,6 +23,6 @@ class Searchclient extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.client.searchclient');
+        return view('components.client.all-client');
     }
 }
