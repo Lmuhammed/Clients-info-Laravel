@@ -1,4 +1,5 @@
 @extends('../_partials.main')
+@section('title', 'الصفحة الرئيسية - كل الزبناء')
 @section('main')
 <x-main.bar name="لائحة الزبناء">
   {{-- slot to add new client --}}

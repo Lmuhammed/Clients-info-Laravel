@@ -1,4 +1,5 @@
 @extends('../../_partials.main')
+@section('title', 'طباعة التقارير')
 @section('main')
   <h1 class="mt-4 mb-4 text-center">بطاقة الفاتورة</h1>
     <div class="row">

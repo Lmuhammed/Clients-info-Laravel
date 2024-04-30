@@ -1,4 +1,5 @@
 @extends('_partials.main')
+@section('title', 'صفحة غي موجودة')
 @section('main')
       <div class="row mt-0 mb-4">
       <div class="col-lg-8 col-sm-10 col-md-8 m-auto">

@@ -1,19 +1,13 @@
 - support passing meesages with routes in Middlewares (auth,guest)
 - tweaking UI & forms :
 (
-styling , 
 @old ,
 Form validation messages output
 use Bootstrap Icons
 )
 - create form control classes (Fro users,clients,payments,products)
-- add function to reuse this code in all forms :
-@if ($errors->has('username'))
-        <span class="text-danger">{{ $errors->first('username') }}</span>
-@endif
 - add user id => addeby to stored with clients (then make authorisation ; to prevent auth()->id!=== addeby cant remove edit client)
 - add forelse => instedof foreach 
 - add styles to invoices
-- laravel blade componets for client,product info
 -use laravel NAMING convention : (file name laravel NAMING convention)
 
