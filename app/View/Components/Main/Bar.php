@@ -1,21 +1,20 @@
 <?php
 
-namespace App\View\Components\Client;
+namespace App\View\Components\Main;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ClientBar extends Component
+class Bar extends Component
 {
-    
     /**
      * Create a new component instance.
      */
-    public $client;
-    public function __construct($client)
+    public $name;
+    public function __construct($name)
     {
-        $this->client=$client;
+        $this->name=$name;
     }
 
     /**
@@ -23,6 +22,6 @@ class ClientBar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.client.client-bar');
+        return view('components.main.bar');
     }
 }
