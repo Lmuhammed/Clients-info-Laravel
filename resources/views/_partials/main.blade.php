@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام إدارة الزبناء</title>
     <link rel="stylesheet" href="{{asset('Boostrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('CostumStyles/main.css')}}">
-      {{-- @yield("styles") --}}
+    <link rel="stylesheet" href="{{asset('other_JS_CSS/main.css')}}">
+    <link rel="icon" type="image/png" href="{{asset('imgs/favicon.svg')}}"> <!-- favicon 
+    source : https://icons.getbootstrap.com/icons/people/
+    -->
+    {{-- @yield("styles") --}}
 </head>
 <body>
    <!-- nav -->
