@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Exceptions;
-
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException; /*added to create costum 404 page*/
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -27,4 +27,12 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    public function render($request, Throwable $exception)
+{
+    if ($exception instanceof NotFoundHttpException) {
+        return response()->view('_partials/error404', [], 404);
+    }
+
+    return parent::render($request, $exception);
+}
 }
