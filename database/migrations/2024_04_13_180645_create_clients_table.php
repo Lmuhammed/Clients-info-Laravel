@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('phone');
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
