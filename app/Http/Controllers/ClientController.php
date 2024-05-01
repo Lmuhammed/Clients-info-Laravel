@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class clientController extends Controller
 {
@@ -19,10 +20,12 @@ class clientController extends Controller
 
     } 
 
+    /*     
     function pdf_info (int $client_id){
         $client=client::findOrfail($client_id);
         return view('client.pdf.info',compact('client'));
-    }
+    } 
+    */
     
     function pdf_payment (int $client_id){
         $client=client::findOrfail($client_id);
@@ -41,6 +44,7 @@ class clientController extends Controller
             'full_name' => 'required',
             'phone' => 'required',
         ]);
+        $data['created_by']=Auth::user()->id;
         client::create($data);
         return redirect()->route('clients.index')
         ->with('message', 'تمت إضافة زبون جديد بنجاح')
