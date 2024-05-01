@@ -56,14 +56,16 @@ class clientController extends Controller
     }
     function edit(int $id) {
         $client=Client::find($id);
+        $this->authorize('update', $client);
         return view('client.edit',compact('client')); 
     }
     function update(Request $request,int $id)  {
+        $client=Client::find($id);
+        $this->authorize('update', $client);
         $data=$request->validate([
             'full_name' => 'required',
             'phone' => 'required',
         ]);
-        $client=Client::find($id);
         $client->update($data);
         return redirect()->route('clients.index')
         ->with('msg-color','success')
@@ -71,6 +73,7 @@ class clientController extends Controller
     }
     function destroy(int $id){
         $client=Client::find($id);
+        $this->authorize('delete', $client);
         $client->delete();
         return redirect()->route('clients.index')
         ->with('msg-color','danger')

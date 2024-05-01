@@ -1,4 +1,4 @@
-<div class="row justify-content-between mb-3 mt-3 border border-2 pt-2 pb-2" >
+<div class="row justify-content-between mb-2 mt-2 border border-1 pt-1 pb-1" >
     <div class="col-5">
             <h3 class="h2">
                 {{$name}}
