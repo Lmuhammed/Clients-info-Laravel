@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\client;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +13,7 @@ class clientController extends Controller
         'search' => 'required',
     ]);
     $search=$input['search'];
-    $clients = client::where('full_name', 'like', '%'.$search.'%')
+    $clients = Client::where('full_name', 'like', '%'.$search.'%')
                     ->orWhere('phone', 'like', '%'.$search.'%')
                     ->paginate(10);
      return view('client.index',compact('clients'));
@@ -22,18 +22,18 @@ class clientController extends Controller
 
     /*     
     function pdf_info (int $client_id){
-        $client=client::findOrfail($client_id);
+        $client=Client::findOrfail($client_id);
         return view('client.pdf.info',compact('client'));
     } 
     */
     
     function pdf_payment (int $client_id){
-        $client=client::findOrfail($client_id);
+        $client=Client::findOrfail($client_id);
         $products=$client->products;
         return view('client.pdf.payment',compact('client','products'));
     }
     function index(){
-       $clients=client::paginate(8);
+       $clients=Client::paginate(8);
         return view('client.index',compact('clients'));
     }
     function new_view(){
@@ -45,17 +45,17 @@ class clientController extends Controller
             'phone' => 'required',
         ]);
         $data['created_by']=Auth::user()->id;
-        client::create($data);
+        Client::create($data);
         return redirect()->route('clients.index')
         ->with('message', 'تمت إضافة زبون جديد بنجاح')
         ->with('msg-color','success');
     }
     function single_view(int $id)  {
-        $client=client::findOrfail($id);        
+        $client=Client::findOrfail($id);        
         return view('client.view',compact('client'));
     }
     function edit(int $id) {
-        $client=client::find($id);
+        $client=Client::find($id);
         return view('client.edit',compact('client')); 
     }
     function update(Request $request,int $id)  {
@@ -63,14 +63,14 @@ class clientController extends Controller
             'full_name' => 'required',
             'phone' => 'required',
         ]);
-        $client=client::find($id);
+        $client=Client::find($id);
         $client->update($data);
         return redirect()->route('clients.index')
         ->with('msg-color','success')
         ->with( 'message','تم تعديل معلومات الزبون بنجاح');
     }
     function destroy(int $id){
-        $client=client::find($id);
+        $client=Client::find($id);
         $client->delete();
         return redirect()->route('clients.index')
         ->with('msg-color','danger')

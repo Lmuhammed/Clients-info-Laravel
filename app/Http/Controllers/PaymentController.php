@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\client;
 use App\Models\Payment;
-use App\Models\product;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
     function new_view(int $id , int $client_id, int $to_pay)  {
-        $product=product::find($id);
+        $product=Product::find($id);
         $product_price=$product->product_prix;
-        $client=client::find($client_id);
+        $client=Client::find($client_id);
         return view('payment.create',compact('product','client','to_pay','product_price'));
     }
 
@@ -32,13 +32,13 @@ class PaymentController extends Controller
 
     function single_view(int $id,$client_id){
         $payment=Payment::findOrfail($id);
-        $client=client::find($client_id);
+        $client=Client::find($client_id);
         return view('payment.view',compact('product','client'));
     }
     function edit(int $payment_id ,int $product_id,int $client_id,int $to_pay) {
         $payment=Payment::find($payment_id);
-        $client=client::find($client_id);
-        $product=product::find($product_id);
+        $client=Client::find($client_id);
+        $product=Product::find($product_id);
         return view('payment.edit',compact('payment','client','product','to_pay')); 
     }
 
