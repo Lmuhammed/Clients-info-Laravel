@@ -13,29 +13,29 @@
 </head>
 <body>
    <!-- nav -->
-   
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 d-print-none">
+   <div class="bg-dark d-print-none">
     <div class="container">
-      {{-- nav brand --}}
-    <a class="navbar-brand" href="{{route('clients.index')}}">نظام إدارة معلومات الزبناء</a>
-      {{-- end nav brand --}}
-      {{-- user action --}}
-      @if(Auth::check())      
-    <div class="ms-2 text-light">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          {{ Auth::user()->full_name }}
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">تعديل المعلومات</a></li>
-          <li><a class="dropdown-item" href="{{route('signout')}}">تسجيل الخروج</a></li>
-        </ul>
-      </li>
-      {{-- end user action --}}
+      <nav class="navbar navbar-dark mb-2">
+        {{-- nav brand --}}
+      <a class="navbar-brand" href="{{route('clients.index')}}">نظام إدارة معلومات الزبناء</a>
+        {{-- user action --}}
+        @if(Auth::check())      
+      <div class="ms-2 text-light">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ Auth::user()->full_name }}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">تعديل المعلومات</a></li>
+            <li><a class="dropdown-item" href="{{route('signout')}}">تسجيل الخروج</a></li>
+          </ul>
+        </li>
+        {{-- end user action --}}
+      </div>
+      @endif
+    </nav>
     </div>
-    @endif
-  </div>
-</nav>
+   </div>
     <!-- endnav -->
     <div class="container pt-1 pb-1">
     @if(session('msg-color') && session('message'))
