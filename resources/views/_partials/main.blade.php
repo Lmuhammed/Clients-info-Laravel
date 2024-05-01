@@ -19,20 +19,19 @@
         {{-- nav brand --}}
       <a class="navbar-brand" href="{{route('clients.index')}}">نظام إدارة معلومات الزبناء</a>
         {{-- user action --}}
-        @if(Auth::check())      
-      <div class="ms-2 text-light">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ Auth::user()->full_name }}
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">تعديل المعلومات</a></li>
-            <li><a class="dropdown-item" href="{{route('signout')}}">تسجيل الخروج</a></li>
-          </ul>
-        </li>
-        {{-- end user action --}}
-      </div>
-      @endif
+        @auth
+        <div class="ms-2 text-light">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <b class="text-warning">{{ Auth::user()->full_name }}</b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">تعديل المعلومات</a></li>
+              <li><a class="dropdown-item" href="{{route('signout')}}">تسجيل الخروج</a></li>
+            </ul>
+          </li>
+        </div>
+        @endauth    
     </nav>
     </div>
    </div>

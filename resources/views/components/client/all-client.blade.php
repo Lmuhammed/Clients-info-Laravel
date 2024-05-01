@@ -26,11 +26,16 @@
                 <td>
                   <div class="d-grid gap-2 d-md-block">
                   <form action="{{ route('clients.destroy',$client->id) }}" method="Post">
-                     <a class="btn btn-success" href="{{ route('clients.view',$client->id) }}">عرض</a>
-                      <a class="btn btn-secondary" href="{{ route('clients.edit',$client->id) }}">تعديل</a>
+                    <a class="btn btn-success" href="{{ route('clients.view',$client->id) }}">عرض</a>
+                    @can('update', $client)
+                    <!-- The current user is authorized to update the post -->
+                    <a class="btn btn-secondary" href="{{ route('clients.edit',$client->id) }}">تعديل</a>
+                    @endcan
                     @csrf
                     @method('DELETE')
+                    @can('delete', $client)
                     <button type="submit" class="btn btn-danger">حذف</button>
+                    @endcan
                   </form>
                     </div>
                 </td>
