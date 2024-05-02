@@ -20,8 +20,8 @@
     <x-main.form-field name="password" label="كلمة السر" type="password"/>
     <x-main.forminputerror name="password"/>
 
-    <div class="d-grid mb-3">
-        <button type="submit" class="btn btn-success">دخول</button>
+    <div class="d-grid mt-3 mb-3">
+      <button type="submit" class="btn btn-success">دخول</button>
     </div>
   </form>
   <p> لديك حساب ؟ <a href="{{ route('login')}}">سجل دخولك الأن !</a></p>

@@ -12,11 +12,11 @@
     </x-main.form-field>
     <x-main.forminputerror name="username"/>
 
-    <x-main.form-field name="password" label="كلمة السر" type="password"/>
+    <x-main.form-field name="password" label="كلمة المرور" type="password"/>
     <x-main.forminputerror name="password"/>
 
-    <div class="d-grid mb-3">
-        <button type="submit" class="btn btn-success">دخول</button>
+    <div class="d-grid mt-3 mb-3">
+      <button type="submit" class="btn btn-success">دخول</button>
     </div>
   </form>
   <p>ليس لديك حساب ؟ <a href="{{route('register')}}">أنشىء حساب</a></p>
