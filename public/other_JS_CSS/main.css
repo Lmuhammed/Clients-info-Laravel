@@ -1,3 +1,7 @@
+.form-control {
+  border: 2px solid rgb(59, 54, 54);
+}
+
 .gold-effect {
     padding: 20px;
     border-radius: 5px;
@@ -22,3 +26,6 @@
   a:hover {
     color: #ff0000; 
   }
+
+ 
+  

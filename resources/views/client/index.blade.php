@@ -13,6 +13,7 @@
   <input class="form-control ms-3" type="search" placeholder="إبحث عن زبون بالإسم أو الهاتف" aria-label="Search" name="search">
   <button class="btn btn-outline-success" type="submit">إبحث</button>
 </form>
+<x-main.forminputerror name="search"/>
 </x-main.bar> 
         <main class="pt-3 py-3 my-3 mx-3">
         @if(! $clients->isEmpty())
