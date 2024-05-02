@@ -1,10 +1,8 @@
 @extends('../_partials.main')
 @section('title', 'إضافة زبون جديد')
 @section('main')
-<main class="">
-            <h3 class="h2">
-                إضافة زبون جديد
-            </h3>
+            <x-main.bar name="إضافة زبون جديد">
+            </x-main.bar> 
             <div class="row justify-content-between">
                 <div class="col-6">
                     <form action="{{route('clients.store')}}" method="post">
@@ -25,5 +23,4 @@
                     </form>
                 </div>
             </div>
-        </main>
 @endsection

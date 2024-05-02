@@ -6,17 +6,17 @@
 <div class="col-lg-8 col-sm-10 col-md-6 bg-white rounded-top mx-auto">
 <x-main.bar name="لوحة معلومات الزبون"/>
     {{-- client info  --}}
-    <x-client.clientinfo :client="$client">
-      {{-- slot to view print button --}}
-      <h6 class="card-subtitle  mt-2 text-muted">التقارير - PDF</h6>
-      {{-- <a class="btn btn-secondary mt-2" href="{{ htmlspecialchars(route('pdf.info',$client->id).'#print') }}">بطاقة معلومات الزبون</a> --}}
-      <a class="btn btn-success mt-2" href="{{ htmlspecialchars(route('pdf.payment',$client->id).'#print') }}">بطاقة الفاتورة</a>          
-    </x-client.clientinfo> 
-    {{-- product bar --}}
-    <x-main.bar name="المنتوجات">
-      {{-- slot to button to add new product --}}
-      <a href="{{route('products.store-view',$client->id)}}" class="btn btn-success">إضافة</a>
-      </x-main.bar> 
+<x-client.clientinfo :client="$client">
+{{-- slot to view print button --}}
+<h6 class="card-subtitle  mt-2 text-muted">التقارير - PDF</h6>
+{{-- <a class="btn btn-secondary mt-2" href="{{ htmlspecialchars(route('pdf.info',$client->id).'#print') }}">بطاقة معلومات الزبون</a> --}}
+<a class="btn btn-success mt-2" href="{{ htmlspecialchars(route('pdf.payment',$client->id).'#print') }}">بطاقة الفاتورة</a>          
+</x-client.clientinfo> 
+{{-- product bar --}}
+<x-main.bar name="المنتوجات" class="col-1 py-2 px-2">
+{{-- slot to button to add new product --}}
+<a href="{{route('products.store-view',$client->id)}}" class="btn btn-success">إضافة</a>
+</x-main.bar> 
     <!-- table -->
       <table class="table table-striped mt-2 mb-2 gold-effect">
         <thead class="table-dark">
