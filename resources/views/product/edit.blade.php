@@ -7,30 +7,21 @@
             <h3 class="h2 text-center mt-3">
                 معلومات الزبون
             </h3>
-            <div class="card gold-effect mb-4">
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted">الإسم الكامل</h6>
-                  <a href="{{route('clients.view',$client->id)}}" class="h3">{{$client->full_name}}</a>
-                  <h6 class="card-subtitle mb-2 text-muted">رقم الهاتف</h6>
-                  <p class="card-text h4 mt-2">{{ $client->phone}}</p>
-                </div>
-            </div>
+            <x-client.clientinfo :client="$client"/>
             <h3 class="h2 text-center mt-3">
                 إضافة منتوج جديد
             </h3>
                    <form action="{{route('products.update',['id' => $products->id, 'client_id' => $client_id ])}}" method="POST">
                       @csrf
                       @method('PUT')
-                        <div class="mb-3">
-                            <label for="full_name" class="form-label">المنتوج</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name" value="{{$products->product_name}}">
-                        </div>
+                        <x-main.form-field name="product_name" label="المنتوج" type="text">
+                        {{ $products->product_name }}
+                        </x-main.form-field>
                         {{-- Component show error --}}
                         <x-main.forminputerror name="product_name"/>
-                        <div class="mb-3">
-                            <label for="product_prix" class="form-label">ثمنه</label>
-                            <input type="text" class="form-control" id="product_prix" name="product_prix" value="{{$products->product_prix}}">
-                        </div>
+                        <x-main.form-field name="product_prix" label="ثمنه" type="text">
+                        {{ $products->product_prix }}
+                        </x-main.form-field>
                         {{-- Component show error --}}
                         <x-main.forminputerror name="product_prix"/>
                         <div class="d-grid mb-4">

@@ -20,16 +20,10 @@
             </h3>
                     <form action="{{route('products.store',$id)}}" method="post">
                       @csrf
-                        <div class="mb-3">
-                            <label for="full_name" class="form-label">المنتوج</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name">
-                        </div>
+                        <x-main.form-field name="product_name" label="المنتوج" type="text" />
                         {{-- Component show error --}}
                         <x-main.forminputerror name="product_name"/>
-                        <div class="mb-3">
-                            <label for="product_prix" class="form-label">ثمنه</label>
-                            <input type="text" class="form-control" id="product_prix" name="product_prix">
-                        </div>
+                        <x-main.form-field name="product_prix" label="ثمنه" type="text" />
                         {{-- Component show error --}}
                         <x-main.forminputerror name="product_prix"/>
                         <div class="d-grid mb-4">
