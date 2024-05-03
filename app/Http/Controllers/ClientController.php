@@ -30,7 +30,8 @@ class clientController extends Controller
     function pdf_payment (int $client_id){
         $client=Client::findOrfail($client_id);
         $products=$client->products;
-        return view('client.pdf.payment',compact('client','products'));
+        $Todaydate=date('Y-m-d');
+        return view('client.pdf.payment',compact('client','products','Todaydate'));
     }
     function index(){
        $clients=Client::paginate(8);

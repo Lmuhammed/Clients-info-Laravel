@@ -1,4 +1,4 @@
-<table class="table table-striped gold-effect" style="width: 90%;" >
+<table class="table table-striped gold-effect" >
     <thead class="table-dark">
         <tr>
             <th>#</th>

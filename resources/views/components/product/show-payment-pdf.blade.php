@@ -1,5 +1,5 @@
-<div style="width: 50%">
-    <dl class="dl-horizontal border border-1 px-3 py-3 gold-effect">
+<div>
+    <dl class="dl-horizontal border border-1 gold-effect">
         <dt>{{ "مبلغ الدفعة"}}</dt>
         <dd>{{$payment->amount }}</dd>
         <dt>{{ "تاريخ الدفع"}}</dt>
