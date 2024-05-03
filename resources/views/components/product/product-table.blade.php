@@ -1,4 +1,4 @@
-<table class="table table-striped gold-effect" style="width: 50%;">
+<table class="table table-striped gold-effect" style="width: 90%;">
     <thead class="table-dark">
             <tr>
             <th> المنتوج</th>
@@ -15,12 +15,14 @@
             <td>{{$topay}}</td>
             <td>{{ $result = $topay == 0 ? '✅' : '❌' ; }}</td>
             <td>
+                @can('update', $client)
                 <form action="{{ route('products.destroy',['id' => $product->id, 'client_id' => $client->id ]) }}" method="POST">
                     <a class="btn btn-secondary" href="{{ route('products.edit',['id' => $product->id, 'client_id' => $client->id ]) }}">تعديل</a>
                    @csrf
                    @method('DELETE')
                    <button type="submit" class="btn btn-danger">حذف</button>
                 </form> 
+                @endcan
             </td>
         </tr>
     </tbody>
