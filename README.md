@@ -1,6 +1,6 @@
 <h1>مشروع إدارة معلومات الزبناء باستخدام Laravel</h1>
 <div style="text-align: center; border: 2px solid yellow; padding: 10px;">
- ![repoBackgrounds](/public/repoBackgrounds.jpg)
+<img src="/public/repoBackgrounds.jpg" alt="Logo">
 <!-- 
 https://unsplash.com/photos/person-working-on-blue-and-white-paper-on-board-qWwpHwip31M
 Free to use under the Unsplash License
