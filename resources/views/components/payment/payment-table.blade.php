@@ -1,4 +1,4 @@
-<table class="table table-striped gold-effect" >
+<table class="table table-striped gold-effect text-center" >
     <thead class="table-dark">
         <tr>
             <th>#</th>
@@ -31,6 +31,9 @@
                 <button type="submit" class="btn btn-danger">حذف</button>
               </form> 
             </div>
+                @else
+                <a class="btn btn-secondary disabled" id="nonAuthorize"href="#">تعديل</a>
+                <a class="btn btn-danger disabled" id="nonAuthorize"href="#">حذف</a>
                 @endcan
                 
             </td>

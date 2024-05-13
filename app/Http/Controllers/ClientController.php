@@ -16,7 +16,7 @@ class ClientController extends Controller
     $clients = Client::where('full_name', 'like', '%'.$search.'%')
                     ->orWhere('phone', 'like', '%'.$search.'%')
                     ->paginate(10);
-     return view('client.index',compact('clients'));
+     return view('Clients.client.index',compact('clients'));
 
     } 
 
@@ -31,14 +31,14 @@ class ClientController extends Controller
         $client=Client::findOrfail($client_id);
         $products=$client->products;
         $Todaydate=date('Y-m-d');
-        return view('client.pdf.payment',compact('client','products','Todaydate'));
+        return view('Clients.client.pdf.payment',compact('client','products','Todaydate'));
     }
     function index(){
        $clients=Client::paginate(8);
-        return view('client.index',compact('clients'));
+        return view('Clients.client.index',compact('clients'));
     }
     function new_view(){
-        return view('client.create');
+        return view('Clients.client.create');
     }
     function create(Request $request){
         $data=$request->validate([
@@ -53,12 +53,12 @@ class ClientController extends Controller
     }
     function single_view(int $id)  {
         $client=Client::findOrfail($id);        
-        return view('client.view',compact('client'));
+        return view('Clients.client.view',compact('client'));
     }
     function edit(int $id) {
         $client=Client::find($id);
         $this->authorize('update', $client);
-        return view('client.edit',compact('client')); 
+        return view('Clients.client.edit',compact('client')); 
     }
     function update(Request $request,int $id)  {
         $client=Client::find($id);
