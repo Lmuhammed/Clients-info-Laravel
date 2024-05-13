@@ -6,7 +6,7 @@ use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class clientController extends Controller
+class ClientController extends Controller
 {
     function search (Request $request){
     $input=$request->validate([

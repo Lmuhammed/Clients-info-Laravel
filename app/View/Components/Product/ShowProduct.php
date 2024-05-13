@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\product;
+namespace App\View\Components\Product;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class showProduct extends Component
+class ShowProduct extends Component
 {
     
     public $product;
