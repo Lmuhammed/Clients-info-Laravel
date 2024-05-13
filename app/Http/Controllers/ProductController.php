@@ -12,7 +12,7 @@ class ProductController extends Controller
     
     function new_view(int $id)  {
         $client=Client::find($id);
-        return view('product.create',compact('id','client'));
+        return view('Clients.product.create',compact('id','client'));
     }
     function create(Request $request,int $id){
         $data=$request->validate([
@@ -37,12 +37,12 @@ class ProductController extends Controller
             'product_price' => $product->product_prix,
             'produc_to_pay' => ($product->product_prix)-$amoutSum
         );
-        return view('product.view',compact('product','client','payments','data'));
+        return view('Clients.product.view',compact('product','client','payments','data'));
     }
     function edit(int $id , int $client_id) {
         $products=Product::find($id);
         $client=Client::find($client_id);
-        return view('product.edit',compact('products','client_id','client')); 
+        return view('Clients.product.edit',compact('products','client_id','client')); 
     }
     function update(Request $request,int $id,int $client_id){
         $data=$request->validate([

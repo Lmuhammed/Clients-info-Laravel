@@ -26,7 +26,7 @@
               <b class="text-warning">{{ Auth::user()->full_name }}</b>
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">تعديل المعلومات</a></li>
+              <li><a class="dropdown-item disabled" href="#" >تعديل المعلومات</a></li>
               <li><a class="dropdown-item" href="{{route('signout')}}">تسجيل الخروج</a></li>
             </ul>
           </li>
@@ -43,5 +43,6 @@
     @yield("main")
     </div>
   <script src="{{asset('Boostrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('other_JS_CSS/main.js')}}"></script>
 </body>
 </html>

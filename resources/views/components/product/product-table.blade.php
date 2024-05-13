@@ -1,4 +1,4 @@
-<table class="table table-striped ps-2 pe-2">
+<table class="table table-striped ps-2 pe-2 text-center">
     <thead class="table-dark">
             <tr>
             <th> المنتوج</th>
@@ -22,6 +22,9 @@
                    @method('DELETE')
                    <button type="submit" class="btn btn-danger">حذف</button>
                 </form> 
+                @else
+                <a class="btn btn-secondary disabled" id="nonAuthorize" href="#">تعديل</a>
+                <a class="btn btn-danger disabled" id="nonAuthorize" href="#">حذف</a>
                 @endcan
             </td>
         </tr>

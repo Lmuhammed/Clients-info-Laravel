@@ -9,11 +9,11 @@ class AuthController extends Controller
 {
     public function login_view()
     {
-        return view('login_system.login');
+        return view('LoginSystem.login');
     }
     public function register_view()
     {
-        return view('login_system.register');
+        return view('LoginSystem.register');
     }
     public function login(Request $request)
     {
