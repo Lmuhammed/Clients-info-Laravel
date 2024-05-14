@@ -28,4 +28,13 @@
   }
 
  
-  
+.alert-danger {
+background-color: #ff0000;
+color: #fcfcfc;
+border: 2px solid rgb(59, 54, 54);
+}
+.alert-success {
+    background-color: #00fd61bb;
+    color: #000000;
+    border: 2px solid rgb(59, 54, 54);
+}

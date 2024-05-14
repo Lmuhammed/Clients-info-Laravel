@@ -23,7 +23,7 @@ class AuthController extends Controller
         ]);
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->route('clients.index')
+            return redirect()->route('index')
             ->with('msg-color','success')
             ->with('message','تم تسجيل الدخول بنجاح ، أهلا بك');
         }
@@ -41,7 +41,7 @@ class AuthController extends Controller
         ]);
         $data = $request->only('full_name','username', 'password');
         $check = $this->create($data);
-        return redirect()->route('clients.index')
+        return redirect()->route('index')
         ->with('msg-color','success')
         ->with('message','تم إنشاء الحساب بنجاح ، أهلا بك');
     }

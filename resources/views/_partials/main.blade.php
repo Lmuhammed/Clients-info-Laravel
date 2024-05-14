@@ -17,7 +17,7 @@
     <div class="container">
       <nav class="navbar navbar-dark mb-2">
         {{-- nav brand --}}
-      <a class="navbar-brand" href="{{route('clients.index')}}">نظام إدارة معلومات الزبناء</a>
+      <a class="navbar-brand" href="{{route('index')}}">نظام إدارة معلومات الزبناء</a>
         {{-- user action --}}
         @auth
         <div class="ms-2 text-light">
