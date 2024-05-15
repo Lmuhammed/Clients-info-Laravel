@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
@@ -38,7 +39,10 @@ Route::delete('payment-delete/{payment_id}/{client_id}', [PaymentController::cla
 Route::get('signout',   [AuthController::class,   'sing_out'])->name('signout');
 //SupplierController
 Route::resource('suppliers', SupplierController::class);
-});
+Route::resource('items', ItemController::class);
+
+}); 
+
 Route::group(['middleware' => 'guest'], function () {
     // user Auth
     Route::post('login/new', [AuthController::class,   'login'])->name('login.custom');

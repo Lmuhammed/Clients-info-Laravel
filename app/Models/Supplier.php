@@ -14,7 +14,6 @@ class Supplier extends Model
         'phone',
         'address',
     ];
-
     
     public function Items()
     {

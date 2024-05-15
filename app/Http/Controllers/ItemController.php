@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -18,17 +19,36 @@ class ItemController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
+
+    public function create(Request $request)
+    {  
+        $data=$request->validate([
+            'AuthPlus' => 'required',
+        ]);
+        $supplier=Supplier::find($data['AuthPlus']);
+        // return redirect()->back();
+         return view('Supplier.product.create',compact('supplier'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $data=$request->validate([
+            'name' => 'required',
+            'price_per_item' => 'required',
+            'number' => 'required',
+            'items_price' => 'required',
+            'AuthPlus' => 'required',
+        ]);
+        $supplier=Supplier::find($data['AuthPlus']);
+        $data['supplier_id']=null;
+        $data['supplier_id']=$data['AuthPlus'];
+        unset($data['AuthPlus']);
+        Item::create($data);
+        return view('Supplier.supplier.view',compact('supplier'));
+
     }
 
     /**
@@ -44,7 +64,9 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        $supplier=Supplier::find($item->supplier_id);
+        return view('Supplier.product.edit',compact('item','supplier'));
+
     }
 
     /**
@@ -52,7 +74,15 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        $data=$request->validate([
+            'name' => 'required',
+            'price_per_item' => 'required',
+            'number' => 'required',
+            'items_price' => 'required',
+        ]);
+        $item->update($data);
+        $supplier=Supplier::find($item->supplier_id);
+        return view('Supplier.supplier.view',compact('supplier'));
     }
 
     /**
@@ -60,6 +90,9 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $id=$item->id;
+        $supplier=Supplier::find($id);
+        $item->delete();
+        return redirect()->route('suppliers.show',[$supplier]);
     }
 }
