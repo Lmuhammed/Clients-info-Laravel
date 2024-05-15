@@ -1,17 +1,17 @@
 @extends('../_partials.main')
 @section('title', 'معلومات الدٌفعات ')
 @section('main')
-<x-main.bar name="لوحة معلومات الزبون"/>
-<x-client.clientinfo :client="$client"/>
-<x-main.bar name="معلومات المنتوج"/>
-<x-product.product-table :product="$product" :topay="$data['produc_to_pay']" :client="$client" />
-<x-main.bar name="سجل الدٌفعات">
-{{-- slot to view print button --}}
-@can('update', $client)
-@if (!$data['produc_to_pay'] == 0 )
-<a href="{{route('payment.store-view',['id' => $product->id, 'client_id' => $client->id,'to_pay' => $data['produc_to_pay']])}}" class="btn btn-dark">إضافة دٌفعة جديدة</a>
-@endif   
-@endcan
-</x-main.bar> 
-<x-payment.payment-table :payments="$payments" :client="$client" :product="$product" :topay="$data['produc_to_pay']"/>
+<div class="col-lg-5 col-sm-10 col-md-6 bg-white m-auto rounded-top border border-3">
+    <x-main.bar name="لوحة معلومات المُورد"/>
+    <div class="card gold-effect mb-4">
+      <div class="card-body">
+        <h6 class="card-subtitle text-muted">الإسم الكامل</h6>
+        <p class="card-text h4  mt-2">{{ $supplier->name}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">رقم الهاتف</h6>
+        <p class="card-text h4 mt-2">{{ $supplier->phone}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">لعنوان</h6>
+        <p class="card-text h4 mt-2">{{ $supplier->address}}</p>
+      </div>
+    </div>
+    <x-main.bar name="لوحة المدفوعات"/>
 @endsection
