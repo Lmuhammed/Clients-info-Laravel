@@ -20,5 +20,9 @@ class Item extends Model
     {
         return $this->belongsTo(Supplier::class);
     } 
+    public function payments()
+    {
+        return $this->hasMany(ItemPayment::class);
+    }
 
 }

@@ -1,5 +1,4 @@
 @extends('_partials.main')
-@section('title', 'إضافة زبون جديد')
 @section('main')
 <div class="row mt-4 mb-4 border border-3">
   <div class="col-lg-5 col-sm-10 col-md-6 bg-white m-auto rounded-top gold-effect">

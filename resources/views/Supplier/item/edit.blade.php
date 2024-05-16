@@ -41,7 +41,7 @@
                         <x-main.forminputerror name="items_price"/>
 
                         <div class="d-grid mb-4">
-                            <button class="btn btn-success" type="submit">إضافة</button>
+                            <button class="btn btn-success" type="submit">تعديل</button>
                         </div>
                     </form>
         </div>
