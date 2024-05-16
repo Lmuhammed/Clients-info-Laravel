@@ -55,8 +55,8 @@
           <td>
             <div class="d-grid gap-2 d-md-block">
               <form action="{{ route('items.destroy',$Items) }}" method="Post">
-                <a class="btn btn-success" href="{{ route('items.show',$Items) }}">عرض</a>
-                <a class="btn btn-secondary" href="{{ route('items.edit',$Items) }}">تعديل</a>
+                <a class="btn btn-success" href="{{ route('ItemPayment.show',$Items->id) }}">عرض</a>
+                <a class="btn btn-secondary" href="{{ route('ItemPayment.edit',$Items) }}">تعديل</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">حذف</button>

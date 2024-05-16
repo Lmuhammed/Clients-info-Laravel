@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\ItemPaymentController;
 
 Route::group(['middleware' => ['auth']], function () {
 Route::get('/', function () {return view('index');})->name('index');
@@ -40,7 +41,7 @@ Route::get('signout',   [AuthController::class,   'sing_out'])->name('signout');
 //SupplierController
 Route::resource('suppliers', SupplierController::class);
 Route::resource('items', ItemController::class);
-
+Route::resource('ItemPayment', ItemPaymentController::class);
 }); 
 
 Route::group(['middleware' => 'guest'], function () {

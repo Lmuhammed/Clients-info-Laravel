@@ -7,15 +7,7 @@ use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
+{  
     /**
      * Show the form for creating a new resource.
      */
@@ -27,7 +19,7 @@ class ItemController extends Controller
         ]);
         $supplier=Supplier::find($data['AuthPlus']);
         // return redirect()->back();
-         return view('Supplier.product.create',compact('supplier'));
+         return view('Supplier.item.create',compact('supplier'));
     }
 
     /**
@@ -47,7 +39,9 @@ class ItemController extends Controller
         $data['supplier_id']=$data['AuthPlus'];
         unset($data['AuthPlus']);
         Item::create($data);
-        return view('Supplier.supplier.view',compact('supplier'));
+        return redirect()->route('suppliers.show',$supplier)
+        ->with('message', 'تمت إضافة العنصر بنجاح')
+        ->with('msg-color','success');
 
     }
 
@@ -56,7 +50,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view('Supplier.item.view',compact('supplier'));
     }
 
     /**
@@ -65,7 +59,7 @@ class ItemController extends Controller
     public function edit(Item $item)
     {
         $supplier=Supplier::find($item->supplier_id);
-        return view('Supplier.product.edit',compact('item','supplier'));
+        return view('Supplier.item.edit',compact('item','supplier'));
 
     }
 
@@ -82,17 +76,20 @@ class ItemController extends Controller
         ]);
         $item->update($data);
         $supplier=Supplier::find($item->supplier_id);
-        return view('Supplier.supplier.view',compact('supplier'));
+        return redirect()->route('suppliers.show',$supplier)
+        ->with('message', 'تم تعديل معلومات العنصر بنجاح')
+        ->with('msg-color','warning');
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Item $item)
-    {
-        $id=$item->id;
-        $supplier=Supplier::find($id);
+    { 
+        $supplier=Supplier::find($item->supplier_id);
         $item->delete();
-        return redirect()->route('suppliers.show',[$supplier]);
+        return redirect()->route('suppliers.show',$supplier)
+        ->with('message', 'تم حذف العنصر بنجاح')
+        ->with('msg-color','danger');
     }
 }
