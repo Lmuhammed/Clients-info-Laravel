@@ -1,6 +1,4 @@
-@extends('../_partials.main')
-@section('title', 'الصفحة الرئيسية - كل المُورد')
-@section('main')
+<x-main.main pagetitle="الصفحة الرئيسية - كل المُوردين">
 <x-main.bar name="لائحة المُورد" class="col-1 py-2 px-2">
 {{-- slot to add new client --}}
   <a class="btn btn-dark" href="{{ route('suppliers.create') }}">إضافة مُورد جديد</a>
@@ -71,4 +69,4 @@
           {{ $suppliers->links() }}
           </div>
         @endif
-@endsection
+</x-main.main>

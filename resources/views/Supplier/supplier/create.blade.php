@@ -1,6 +1,4 @@
-@extends('../_partials.main')
-@section('title', 'إضافة مُورد جديد')
-@section('main')
+<x-main.main pagetitle="إضافة مُورد جديد">
 <div class="row mt-4 mb-4">
   <div class="col-lg-5 col-sm-10 col-md-6 bg-white m-auto rounded-top border border-3 gold-effect">
                     <div class="pt-3 pb-3 mt-3 mb-3">
@@ -23,4 +21,4 @@
                     </form>
                 </div>
             </div>
-@endsection
+</x-main.main>

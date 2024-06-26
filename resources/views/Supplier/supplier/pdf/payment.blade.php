@@ -1,8 +1,9 @@
-@extends('../../_partials.main')
-@section('title', "فاتورة : $client->full_name - $Todaydate  ")
-
-@section('main')
-  <div class="mt-0 mb-2 h2 text-center">
+@php
+$data="فاتورة ";
+$data.="$client->full_name - $Todaydate";
+@endphp
+<x-main.main :pagetitle="$date">
+<div class="mt-0 mb-2 h2 text-center">
     <h1>بطاقة الفاتورة ، الزبون {{ $client->full_name}} </h1>
    <div class="d-none d-print-block">
     {{ env('CITY');}} في <span>{{ $Todaydate }}</span>
@@ -83,4 +84,4 @@
      </div>
       </div>
     </div>
-@endsection
+</x-main.main>

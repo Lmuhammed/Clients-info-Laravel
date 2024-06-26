@@ -1,6 +1,5 @@
-@extends('../_partials.main')
-@section('title', 'الصفحة الرئيسية - كل الزبناء')
-@section('main')
+
+<x-main.main pagetitle="الصفحة الرئيسية - كل الزبناء">
 <x-main.bar name="لائحة الزبناء" class="col-1 py-2 px-2">
 {{-- slot to add new client --}}
   <a class="btn btn-dark" href="{{ route('clients.store-view') }}">إضافة زبون جديد</a>
@@ -29,4 +28,4 @@
           {{ $clients->links() }}
           </div>
         @endif
-@endsection
+</x-main.main>

@@ -1,6 +1,4 @@
-@extends('../_partials.main')
-@section('title', 'صفحة الدخول')
-@section('main')
+<x-main.main pagetitle="صفحة الدخول">
 <div class="row mt-4 mb-4">
 <div class="col-lg-5 col-sm-10 col-md-6 bg-white m-auto rounded-top border border-3">
   <div class="pt-3 pb-3 mt-3 mb-3">
@@ -22,4 +20,4 @@
   <p>ليس لديك حساب ؟ <a href="{{route('register')}}">أنشىء حساب</a></p>
 </div>      
 </div>
-@endsection
+</x-main.main>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\ItemPaymentController;
 
+
 Route::group(['middleware' => ['auth']], function () {
 Route::get('/', function () {return view('index');})->name('index');
 //suppliers
