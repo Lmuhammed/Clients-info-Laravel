@@ -1,6 +1,4 @@
-@extends('../_partials.main')
-@section('title', 'تعديل معلومات الدٌفعة')
-@section('main')
+<x-main.main pagetitle="تعديل معلومات الدٌفعة">
 <div class="row">
                    <!-- card info -->
                     <div class="col-lg-6 mx-auto my-auto">
@@ -23,4 +21,4 @@
                         </form>
                    </div>
                </div>
-@endsection
+</x-main.main>

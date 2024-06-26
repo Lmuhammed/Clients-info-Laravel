@@ -1,8 +1,8 @@
-@extends('../_partials.main')
-@section('title', 'معلومات الدٌفعات ')
-@section('main')
+<x-main.main pagetitle="معلومات الدٌفعات">
 <x-main.bar name="لوحة معلومات الزبون"/>
-<x-client.clientinfo :client="$client"/>
+<x-client.clientinfo :client="$client">
+<a class="card-text h4  mt-2" href="{{ route('clients.view',$client->id) }}">{{ "الذهاب إلى صفحته"}}</a>
+</x-client.clientinfo>
 <x-main.bar name="معلومات المنتوج"/>
 <x-product.product-table :product="$product" :topay="$data['produc_to_pay']" :client="$client" />
 <x-main.bar name="سجل الدٌفعات">
@@ -14,4 +14,5 @@
 @endcan
 </x-main.bar> 
 <x-payment.payment-table :payments="$payments" :client="$client" :product="$product" :topay="$data['produc_to_pay']"/>
-@endsection
+
+</x-main.main>

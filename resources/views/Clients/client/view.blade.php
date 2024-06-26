@@ -1,6 +1,4 @@
-@extends('../_partials.main')
-@section('title', 'معلومات الزبون')
-@section('main')
+<x-main.main pagetitle="معلومات الزبون">
 <div class="row mt-3 mb-3">
   {{-- client & product table --}}
 <div class="col-lg-8 col-sm-10 col-md-6 bg-white rounded-top mx-auto">
@@ -68,4 +66,4 @@
   </table>
   </div> 
 </div>
-@endsection
+</x-main.main>

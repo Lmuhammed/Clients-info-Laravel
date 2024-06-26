@@ -1,7 +1,5 @@
-@extends('../_partials.main')
-@section('title', 'إضافة عنصر جديد')
-@section('main')
-    <div class="row mt-4">
+<x-main.main pagetitle="إضافة عنصر جديد">
+<div class="row mt-4">
         <div class="col-lg-5 col-sm-10 col-md-6 bg-white m-auto rounded-top border border-3">
             <x-main.bar name="لوحة معلومات المُورد"/>
             <div class="card gold-effect mb-4">
@@ -38,4 +36,4 @@
                     </form>
         </div>
     </div>
-@endsection
+</x-main.main>

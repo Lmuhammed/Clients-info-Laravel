@@ -1,5 +1,5 @@
-@extends('_partials.main')
-@section('main')
+<x-main.main pagetitle="الصفحة الرئيسية">
+
 <div class="row mt-4 mb-4 border border-3">
   <div class="col-lg-5 col-sm-10 col-md-6 bg-white m-auto rounded-top gold-effect">
       <div class="card">
@@ -18,5 +18,6 @@
               <a href="{{route('suppliers.index')}}" class="btn btn-warning">الإنتقال</a>
             </div>
           </div>       
-    </div>            
-@endsection
+    </div>
+
+</x-main.main>

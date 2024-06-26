@@ -1,6 +1,4 @@
-@extends('../_partials.main')
-@section('title', 'معلومات الدٌفعات ')
-@section('main')
+<x-main.main pagetitle="معلومات الدٌفعات">
 <div class="col-lg-8 col-sm-10 col-md-6 bg-white m-auto rounded-top">
     <x-main.bar name="لوحة معلومات المُورد"/>
     <div class="card gold-effect mb-4">
@@ -57,4 +55,4 @@
           @endforeach
   </tbody>
   </table>
-@endsection
+</x-main.main>
