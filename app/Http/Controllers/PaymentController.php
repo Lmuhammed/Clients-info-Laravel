@@ -13,7 +13,7 @@ class PaymentController extends Controller
         $product=Product::find($id);
         $product_price=$product->product_prix;
         $client=Client::find($client_id);
-        return view('Clients.payment.create',compact('product','client','to_pay','product_price'));
+        return view('app.Clients.payment.create',compact('product','client','to_pay','product_price'));
     }
 
     function create(Request $request,int $id,int $client_id){
@@ -33,13 +33,13 @@ class PaymentController extends Controller
     function single_view(int $id,$client_id){
         $payment=Payment::findOrfail($id);
         $client=Client::find($client_id);
-        return view('Clients.payment.view',compact('product','client'));
+        return view('app.Clients.payment.view',compact('product','client'));
     }
     function edit(int $payment_id ,int $product_id,int $client_id,int $to_pay) {
         $payment=Payment::find($payment_id);
         $client=Client::find($client_id);
         $product=Product::find($product_id);
-        return view('Clients.payment.edit',compact('payment','client','product','to_pay')); 
+        return view('app.Clients.payment.edit',compact('payment','client','product','to_pay')); 
     }
 
     function update(Request $request,int $id,int $client_id){
