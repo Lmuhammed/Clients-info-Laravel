@@ -1,7 +1,5 @@
-@extends('_partials.main')
-@section('title', 'صفحة غي موجودة')
-@section('main')
-      <div class="row mt-0 mb-4">
+<x-main.main pagetitle="الصفحة غير موجودة">
+<div class="row mt-0 mb-4">
       <div class="col-lg-8 col-sm-10 col-md-8 m-auto">
             <h1>صفحة خطأ</h1>
             <img src="{{asset('imgs/404.jpg')}}" class="img404 mt-2" alt="'404 image'">
@@ -16,4 +14,4 @@
             </div>  
         </div>
       </div>
-@endsection
+</x-main.main>
