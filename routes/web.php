@@ -1,19 +1,16 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\ItemPaymentController;
+
 
 
 Route::group(['middleware' => ['auth']], function () {
-Route::get('/', function () {return view('index');})->name('index');
-//suppliers
+//client
+Route::get('/', [ClientController::class, 'index'])->name('index');
 Route::get('/search', [ClientController::class, 'search'])->name('clients.search');
-Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 Route::get('new', [ClientController::class, 'new_view'])->name('clients.store-view');
 Route::post('create', [ClientController::class, 'create'])->name('clients.store');
 Route::get('view/{id}', [ClientController::class, 'single_view'])->name('clients.view');
@@ -39,10 +36,6 @@ Route::put('payment-edit/{id}/{client_id}', [PaymentController::class, 'update']
 Route::delete('payment-delete/{payment_id}/{client_id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
 // user Auth
 Route::get('signout',   [AuthController::class,   'sing_out'])->name('signout');
-//SupplierController
-Route::resource('suppliers', SupplierController::class);
-Route::resource('items', ItemController::class);
-Route::resource('ItemPayment', ItemPaymentController::class);
 }); 
 
 Route::group(['middleware' => 'guest'], function () {
