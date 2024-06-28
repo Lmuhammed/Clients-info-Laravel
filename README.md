@@ -5,9 +5,17 @@
 https://unsplash.com/photos/person-working-on-blue-and-white-paper-on-board-qWwpHwip31M
 Free to use under the Unsplash License
 -->
-</div>
 
-هذا المشروع هو نظام إدارة معلومات الزبناء يتم بناؤه باستخدام إطار العمل Laravel. يهدف المشروع إلى تسهيل عمليات إدارة بيانات الزبناء بشكل فعال ومنظم.
+مشروع لارافل لإدارة معلومات الزبناء : معلومات التواصل ، المشتريات والدفعات
+<br>
+كان هدفي من هذا المشروع تقوية معرفتي بإطار العمل لارافل وقد تمكنت من خلال العمل على هذا المشروع : طورت معرفتي بعدد من مكونات الإطار ك :
+
+    -Laravel components
+    -Laravel Authentication (Using Auth class)
+    -Laravel Authorization using Policies & middlewares
+    -Form validation 
+    -Basic CRUD
+
 <br>
 0.الميزات
 
@@ -19,10 +27,17 @@ Free to use under the Unsplash License
 1.التثبيت
 
     قم بتحميل المشروع من مستودع GitHub
+
+```php
+git clone https://github.com/LM-47/Clients-info-Laravel.git
+```
+
     قم بتثبيت جميع الاعتماديات باستخدام Composer 
 
 ```php
 composer install
+cp .env.example .env
+php artisan key:generate
 ```
 قم بإنشاء قاعدة بيانات جديدة وقم بتعديل ملف .env لتوافق إعدادات القاعدة
 قم بتجهيز قاعدة البيانات 
@@ -34,19 +49,11 @@ php artisan migrate
 ```php 
 php artisan serve
 ```
-<span style="color: yellow;">أو يمكنك إستخدام مشروعنا [Laravel Setup](https://github.com/L-mohamed/Setup-Laravel)</span>
-
 
 2.الإستخدام
 
-    قم بتسجيل الدخول باستخدام بيانات المستخدم الافتراضية
-    استكشف واستخدم ميزات النظام لإدارة بيانات الزبناء
-
-3.المساهمة
-
-إذا كنت ترغب في المساهمة في تطوير هذا المشروع، يرجى فتح طلب سحب (Pull Request) على GitHub.
-المؤلف
-
-ترخيص
-
-هذا المشروع مرخص بموجب رخصة [نوع الترخيص]. انظر ملف LICENSE للمزيد من التفاصيل.
+إفتح متصفحك المفضل ،وأدخل 
+```php
+http://127.0.0.1:8000/
+```
+</div>
