@@ -29,7 +29,7 @@ Free to use under the Unsplash License
     قم بتحميل المشروع من مستودع GitHub
 
 ```php
-git clone https://github.com/LM-47/Clients-info-Laravel.git
+git clone https://github.com/Lmuhammed/Clients-info-Laravel.git
 ```
 
     قم بتثبيت جميع الاعتماديات باستخدام Composer 
