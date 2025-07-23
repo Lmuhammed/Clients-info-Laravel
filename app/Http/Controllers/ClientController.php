@@ -47,7 +47,7 @@ class ClientController extends Controller
         ]);
         $data['created_by']=Auth::user()->id;
         Client::create($data);
-        return redirect()->route('clients.index')
+        return redirect()->route('index')
         ->with('message', 'تمت إضافة زبون جديد بنجاح')
         ->with('msg-color','success');
     }
@@ -68,7 +68,7 @@ class ClientController extends Controller
             'phone' => 'required',
         ]);
         $client->update($data);
-        return redirect()->route('clients.index')
+        return redirect()->route('index')
         ->with('msg-color','success')
         ->with( 'message','تم تعديل معلومات الزبون بنجاح');
     }
@@ -76,7 +76,7 @@ class ClientController extends Controller
         $client=Client::find($id);
         $this->authorize('delete', $client);
         $client->delete();
-        return redirect()->route('clients.index')
+        return redirect()->route('index')
         ->with('msg-color','danger')
         ->with('message','تم حذف معلومات الزبون بنجاح');
 

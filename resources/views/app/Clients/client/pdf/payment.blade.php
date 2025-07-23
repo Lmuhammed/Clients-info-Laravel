@@ -55,24 +55,7 @@ $data.="$client->full_name - $Todaydate";
             </div>
             @endforeach   
           </div>      
-        <table class="table" style="border: 1px solid black;">
-          <thead>
-              <tr>
-                  <th>#</th>
-                  <th>المجموع</th>
-                  <th>تم دفع</th>
-                  <th>الباقي</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>1</td>
-                  <td>{{$productsPrice}}</td>
-                  <td>{{$totalAmount}}</td>
-                  <td>{{$productsPrice - $totalAmount}}</td>
-              </tr>
-          </tbody>
-      </table>
+      
       <div class="border: 1px solid black;">
         <h1 class="h3">التوقيع أو الختم</h1>
       </div>
