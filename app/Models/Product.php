@@ -21,4 +21,15 @@ class Product extends Model
     {
         return $this->hasMany(Payment::class);
     }
+
+    public function totalPaid()
+    {
+        return $this->payments()->sum('amount');
+    }
+
+    public function outstandingBalance()
+    {
+        return $this->product_prix - $this->totalPaid();
+    }
+
 }

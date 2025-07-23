@@ -30,8 +30,27 @@ class ClientController extends Controller
     function pdf_payment (int $client_id){
         $client=Client::findOrfail($client_id);
         $products=$client->products;
+/*         $products = Product::all(); // Fetch all products or filter based on your logic
+ */
+        $invoiceData = [];
+        $allprodNumbers = [
+            "totalPaid" => 0,
+            "outstandingBalance" => 0,
+        ];
+        foreach ($products as $product) {
+            $totalPaid = $product->totalPaid();
+            $outstandingBalance = $product->outstandingBalance();
+            $invoiceData[] = [
+                'product' => $product,
+                'totalPaid' => $totalPaid,
+                'outstandingBalance' => $outstandingBalance,
+            ];
+            $allprodNumbers["totalPaid"]+=$totalPaid;
+            $allprodNumbers["outstandingBalance"]+=$outstandingBalance;
+        }
+
         $Todaydate=date('Y-m-d');
-        return view('app.Clients.client.pdf.payment',compact('client','products','Todaydate'));
+        return view('app.Clients.client.pdf.payment',compact('client','products','Todaydate','invoiceData','allprodNumbers'));
     }
     function index(){
        $clients=Client::paginate(8);
